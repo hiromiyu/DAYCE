@@ -13,10 +13,14 @@ struct PersistenceController {
     static var preview: PersistenceController = {
         let result = PersistenceController(inMemory: true)
         let viewContext = result.container.viewContext
-        for _ in 0..<10 {
-            let newItem = Item(context: viewContext)
-            newItem.timestamp = Date()
-        }
+        let newSampleData = SampleData(context: viewContext)
+        newSampleData.id = UUID()
+        newSampleData.date = Date()
+        newSampleData.text = ""
+        newSampleData.bool = false
+        newSampleData.image1 = Data.init()
+        newSampleData.image2 = Data.init()
+        
         do {
             try viewContext.save()
         } catch {

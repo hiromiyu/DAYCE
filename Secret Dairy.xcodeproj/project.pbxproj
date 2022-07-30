@@ -13,6 +13,12 @@
 		45BFD041289538110050D064 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45BFD040289538110050D064 /* Preview Assets.xcassets */; };
 		45BFD043289538110050D064 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BFD042289538110050D064 /* Persistence.swift */; };
 		45BFD046289538110050D064 /* Secret_Dairy.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 45BFD044289538110050D064 /* Secret_Dairy.xcdatamodeld */; };
+		45BFD04E28953B320050D064 /* SampleData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BFD04C28953B320050D064 /* SampleData+CoreDataClass.swift */; };
+		45BFD04F28953B320050D064 /* SampleData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BFD04D28953B320050D064 /* SampleData+CoreDataProperties.swift */; };
+		45BFD05128953BDC0050D064 /* SampleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BFD05028953BDC0050D064 /* SampleModel.swift */; };
+		45BFD05328953C1E0050D064 /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BFD05228953C1E0050D064 /* PhotoPicker.swift */; };
+		45BFD05528953CE70050D064 /* SheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BFD05428953CE70050D064 /* SheetView.swift */; };
+		45BFD05728953E090050D064 /* SampleCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BFD05628953E090050D064 /* SampleCardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +29,12 @@
 		45BFD040289538110050D064 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		45BFD042289538110050D064 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		45BFD045289538110050D064 /* Secret_Dairy.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Secret_Dairy.xcdatamodel; sourceTree = "<group>"; };
+		45BFD04C28953B320050D064 /* SampleData+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SampleData+CoreDataClass.swift"; sourceTree = "<group>"; };
+		45BFD04D28953B320050D064 /* SampleData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SampleData+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		45BFD05028953BDC0050D064 /* SampleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleModel.swift; sourceTree = "<group>"; };
+		45BFD05228953C1E0050D064 /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
+		45BFD05428953CE70050D064 /* SheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetView.swift; sourceTree = "<group>"; };
+		45BFD05628953E090050D064 /* SampleCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleCardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +51,11 @@
 		45BFD02D289538100050D064 = {
 			isa = PBXGroup;
 			children = (
+				45BFD04C28953B320050D064 /* SampleData+CoreDataClass.swift */,
+				45BFD04D28953B320050D064 /* SampleData+CoreDataProperties.swift */,
+				45BFD05028953BDC0050D064 /* SampleModel.swift */,
+				45BFD05228953C1E0050D064 /* PhotoPicker.swift */,
+				45BFD05428953CE70050D064 /* SheetView.swift */,
 				45BFD038289538100050D064 /* Secret Dairy */,
 				45BFD037289538100050D064 /* Products */,
 			);
@@ -57,6 +74,7 @@
 			children = (
 				45BFD039289538100050D064 /* Secret_DairyApp.swift */,
 				45BFD03B289538100050D064 /* ContentView.swift */,
+				45BFD05628953E090050D064 /* SampleCardView.swift */,
 				45BFD03D289538110050D064 /* Assets.xcassets */,
 				45BFD042289538110050D064 /* Persistence.swift */,
 				45BFD044289538110050D064 /* Secret_Dairy.xcdatamodeld */,
@@ -144,8 +162,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				45BFD043289538110050D064 /* Persistence.swift in Sources */,
+				45BFD05528953CE70050D064 /* SheetView.swift in Sources */,
 				45BFD03C289538100050D064 /* ContentView.swift in Sources */,
 				45BFD03A289538100050D064 /* Secret_DairyApp.swift in Sources */,
+				45BFD04F28953B320050D064 /* SampleData+CoreDataProperties.swift in Sources */,
+				45BFD05328953C1E0050D064 /* PhotoPicker.swift in Sources */,
+				45BFD05728953E090050D064 /* SampleCardView.swift in Sources */,
+				45BFD04E28953B320050D064 /* SampleData+CoreDataClass.swift in Sources */,
+				45BFD05128953BDC0050D064 /* SampleModel.swift in Sources */,
 				45BFD046289538110050D064 /* Secret_Dairy.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -278,6 +302,10 @@
 				DEVELOPMENT_TEAM = BP8CCKX4A3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSCalendarsUsageDescription = "カレンダーを使います";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "フォトを書き込みます";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "フォトを使います";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -307,6 +335,10 @@
 				DEVELOPMENT_TEAM = BP8CCKX4A3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSCalendarsUsageDescription = "カレンダーを使います";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "フォトを書き込みます";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "フォトを使います";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
