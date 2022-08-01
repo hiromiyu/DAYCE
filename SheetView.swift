@@ -63,9 +63,10 @@ struct SheetView: View {
                     .scaledToFit()
                     .frame(width: 30, height: 30)
                     .foregroundColor(.black)
+                Text("PHOTO")
             }
             .padding()
-            Text("PHOTO")
+            
             }
             .fullScreenCover(isPresented: $isPicking) {
                 ImagePicker(
@@ -114,7 +115,7 @@ struct SheetView: View {
             default:
                 HStack {
                     Image(uiImage: UIImage(data: sampleModel.image1) ??
-                          UIImage(systemName: "person.crop.square")!)
+                          UIImage(systemName: "person.crop.artframe")!)
                     .resizable()
                     .scaledToFill()
                     .frame(width: 100, height: 100, alignment: .center)
@@ -123,7 +124,7 @@ struct SheetView: View {
                     Spacer()
                     
                     Image(uiImage: UIImage(data: sampleModel.image2) ??
-                          UIImage(systemName: "person.crop.square")!)
+                          UIImage(systemName: "person.crop.artframe")!)
                     .resizable()
                     .scaledToFill()
                     .frame(width: 100, height: 100, alignment: .center)

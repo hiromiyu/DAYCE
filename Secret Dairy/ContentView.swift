@@ -24,19 +24,25 @@ struct ContentView: View {
             Button(action:{
                 sampleModel.isNewData.toggle()
             }){
-                Text("日記 追加")
-                    .font(.title)
-                    .fontWeight(.semibold)
-                    .foregroundColor(Color.black)
+                Text("追加")
+                Image(systemName: "pencil.and.outline")
+                    .frame(width: 50.0, height: 50.0)
             }
+            .frame(width: 130, height: 60, alignment: .center)
+            .foregroundColor(Color.white)
+            .background(Color.black)
+            .imageScale(.large)
+            .padding()
             .sheet(isPresented: $sampleModel.isNewData, content: {
                 SheetView(sampleModel: sampleModel)
             })
-        
+            NavigationView {
             List{
-                ForEach(samples) {samples in
+                ForEach(samples) { samples in
                     SampleCardView(sampleModel: sampleModel, samples: samples)
+                    }
                 }
+            .navigationTitle("日記")
             }
         }
     }
