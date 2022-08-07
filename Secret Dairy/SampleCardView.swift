@@ -19,29 +19,30 @@ struct SampleCardView: View {
                 != 0 {
                 Image(uiImage: UIImage(data: samples.wrappedImg1)!)
                     .resizable()
-                    .scaledToFill()
-                    .frame(width: 60, height: 60, alignment: .center)
-                    .clipped()
-                    .padding(.leading)
+                   // .scaledToFill()
+                    .frame(width: 50, height: 50)
+                    //.clipped()
+                    //.padding(.leading)
             }
             if samples.image2?.count ?? 0
                 != 0 {
                 Image(uiImage: UIImage(data: samples.wrappedImg2)!)
                     .resizable()
-                    .scaledToFill()
-                    .frame(width: 60, height: 60, alignment: .center)
-                    .clipped()
+                    //.scaledToFill()
+                    .frame(width: 50, height: 50)
+                    //.clipped()
             }
-                Spacer()
-            
+
             VStack {
                 Text(samples.wrappedDate,
                 formatter: itemFormatter)
                 
                 Text(samples.wrappedText)
+                    .lineLimit(1)
+                    .frame(width: 100)
+                
             Image(systemName: samples.bool ? "star.fill":"star")
             }
-      
         .contextMenu{
             Button(action: {
                 sampleModel.editItem(item:samples)
@@ -65,8 +66,8 @@ struct SampleCardView: View {
     private let itemFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.calendar = Calendar(identifier: .gregorian)
-        formatter.locale = Locale(identifier: "ja_JA")
-        formatter.dateStyle = .medium
+        formatter.locale = Locale(identifier: "ja_JP")
+        formatter.dateStyle = .long
         formatter.timeStyle = .none
         return formatter
     }()
@@ -74,7 +75,7 @@ struct SampleCardView: View {
 
 struct SampleCardView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+       ContentView()
             .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }

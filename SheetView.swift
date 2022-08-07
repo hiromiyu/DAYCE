@@ -26,9 +26,7 @@ struct SheetView: View {
     
     var body: some View {
         VStack(alignment:.leading) {
-            
             DatePicker("",selection:$sampleModel.date)
-                
                 .datePickerStyle(GraphicalDatePickerStyle())
                 .environment(\.locale, Locale(identifier: "ja_JP"))
                 .ignoresSafeArea()
@@ -40,7 +38,6 @@ struct SheetView: View {
                 .foregroundColor(.blue)
                 Spacer()
                 
-                
                 Button(action:{
                                sampleModel.bool.toggle()}){
                                    Image(systemName:sampleModel.bool ? "star.fill":"star")
@@ -50,15 +47,15 @@ struct SheetView: View {
                     sampleModel.writeData(context:context)
                 })
                 .foregroundColor(.blue)
+                .disabled(sampleModel.text.isEmpty)
             }
-            
             TextField("出来事を書いて下さい", text:$sampleModel.text)
-                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                                  .textFieldStyle(RoundedBorderTextFieldStyle())
             HStack {
             Button(action: {
                 self.isPicking.toggle()
             }) {
-                Image(systemName: "camera.fill")
+                Image(systemName: "photo")
                     .resizable()
                     .scaledToFit()
                     .frame(width: 30, height: 30)
@@ -66,7 +63,6 @@ struct SheetView: View {
                 Text("PHOTO")
             }
             .padding()
-            
             }
             .fullScreenCover(isPresented: $isPicking) {
                 ImagePicker(
@@ -75,8 +71,6 @@ struct SheetView: View {
                     isPicking:$isPicking,
                     images: $images)
             }
-            
-            
             switch images.count {
             case 1: HStack {
                 Image(uiImage: UIImage(data: images[0]) ??
