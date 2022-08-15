@@ -14,43 +14,45 @@ struct SheetView: View {
     private var context
     @State private var isPicking: Bool = false
     @State private var images: [Data] = []
+    @FocusState var focus: Bool
     
     var pickerConfig: PHPickerConfiguration {
         var config = PHPickerConfiguration(photoLibrary: PHPhotoLibrary.shared())
         config.filter = .images
         
         config.preferredAssetRepresentationMode = .current
-        config.selectionLimit = 2
+        config.selectionLimit = 1
         return config
     }
     
     var body: some View {
-        VStack(alignment:.leading) {
-            DatePicker("",selection:$sampleModel.date)
-                .datePickerStyle(GraphicalDatePickerStyle())
-                .environment(\.locale, Locale(identifier: "ja_JP"))
-                .ignoresSafeArea()
-            
+        VStack(alignment:.center) {
+            DatePicker("日付",selection:$sampleModel.date)
+                                        .environment(\.locale, Locale(identifier: "ja_JP"))
             HStack {
                 Button("戻る", action:{
                     sampleModel.isNewData = false
                 })
-                .foregroundColor(.blue)
                 Spacer()
                 
                 Button(action:{
                                sampleModel.bool.toggle()}){
-                                   Image(systemName:sampleModel.bool ? "star.fill":"star")
+                                   Image(systemName:sampleModel.bool ? "heart.fill":"heart")
+                                       .foregroundColor(.pink)
                                }
                 Spacer()
                 Button("追加", action:{
                     sampleModel.writeData(context:context)
                 })
-                .foregroundColor(.blue)
                 .disabled(sampleModel.text.isEmpty)
             }
-            TextField("出来事を書いて下さい", text:$sampleModel.text)
-                                  .textFieldStyle(RoundedBorderTextFieldStyle())
+            TextEditor(text: $sampleModel.text)
+                .frame(width: 300, height: 250)
+                .border(Color.gray)
+                .lineSpacing(5)
+                .padding()
+                .focused(self.$focus)
+            
             HStack {
             Button(action: {
                 self.isPicking.toggle()
@@ -59,10 +61,15 @@ struct SheetView: View {
                     .resizable()
                     .scaledToFit()
                     .frame(width: 30, height: 30)
-                    .foregroundColor(.black)
                 Text("PHOTO")
             }
-            .padding()
+//            .padding()
+                Spacer()
+                if self.focus {
+                Button("キーボードを閉じる"){
+                    self.focus = false
+                    }
+                }
             }
             .fullScreenCover(isPresented: $isPicking) {
                 ImagePicker(
@@ -77,9 +84,10 @@ struct SheetView: View {
                       UIImage(systemName: "photo")!)
                 .resizable()
                 .scaledToFill()
-                .frame(width: 100, height: 100, alignment: .center)
+                .frame(width: 90, height: 90, alignment: .center)
                 .border(Color.gray)
                 .clipped()
+                Spacer()
             }
             .onAppear(){
                 sampleModel.image1 = images[0]
@@ -90,7 +98,7 @@ struct SheetView: View {
                       UIImage(systemName: "photo")!)
                 .resizable()
                 .scaledToFill()
-                .frame(width: 100, height: 100, alignment: .center)
+                .frame(width: 90, height: 90, alignment: .center)
                 .border(Color.gray)
                 .clipped()
                 
@@ -98,7 +106,7 @@ struct SheetView: View {
                       UIImage(systemName: "photo")!)
                 .resizable()
                 .scaledToFill()
-                .frame(width: 100, height: 100, alignment: .center)
+                .frame(width: 90, height: 90, alignment: .center)
                 .border(Color.gray)
                 .clipped()
             }
@@ -112,19 +120,19 @@ struct SheetView: View {
                           UIImage(systemName: "person.crop.artframe")!)
                     .resizable()
                     .scaledToFill()
-                    .frame(width: 100, height: 100, alignment: .center)
+                    .frame(width: 90, height: 90, alignment: .center)
                     .clipped()
                     .opacity(0.5)
                     Spacer()
                     
-                    Image(uiImage: UIImage(data: sampleModel.image2) ??
-                          UIImage(systemName: "person.crop.artframe")!)
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 100, height: 100, alignment: .center)
-                    .clipped()
-                    .opacity(0.5)
-                    Spacer()
+//                    Image(uiImage: UIImage(data: sampleModel.image2) ??
+//                          UIImage(systemName: "person.crop.artframe")!)
+//                    .resizable()
+//                    .scaledToFill()
+//                    .frame(width: 90, height: 90, alignment: .center)
+//                    .clipped()
+//                    .opacity(0.5)
+//                    Spacer()
                 }
             }
         }

@@ -16,6 +16,7 @@ struct ContentView: View {
         sortDescriptors: [NSSortDescriptor(keyPath: \SampleData.date, ascending: false)],
         animation: .default)
     private var samples: FetchedResults<SampleData>
+    @State private var bool = false
     
     var body: some View {
         VStack {
@@ -26,20 +27,35 @@ struct ContentView: View {
                             PhotoView(samples: samples)
                         } label: {
                             SampleCardView(sampleModel: sampleModel, samples: samples)
+                                .swipeActions(edge: .trailing, allowsFullSwipe: false) {
+                                    Button(role: .destructive, action: {
+                                        viewContext.delete(samples)
+                                        try!
+                                        viewContext.save()
+                                    }){
+                                        Text("削除")
+                                    Image(systemName: "trash")
+                                }
+                            }
                         }
+                    }
+                    .onDelete {_ in
                     }
                 }
                 .navigationTitle("リスト")
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
-                        Button(action:{
-                            sampleModel.isNewData.toggle()
-                        }){
-                            Text("追加")
+                        HStack {
+                            Button(action:{
+                                sampleModel.isNewData.toggle()
+                            }){
+                                Text("追加")
+                            }
+                            .sheet(isPresented: $sampleModel.isNewData, content: {
+                                SheetView(sampleModel: sampleModel)
+                            })
+//                            EditButton()
                         }
-                        .sheet(isPresented: $sampleModel.isNewData, content: {
-                            SheetView(sampleModel: sampleModel)
-                        })
                     }
                 }
             }

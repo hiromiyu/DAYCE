@@ -14,16 +14,16 @@ struct PhotoCardView: View {
     @ObservedObject var sampleModel: SampleModel
 
     var body: some View {
-            if samples.image1?.count ?? 0
+        if samples.image1?.count ?? 0
                 != 0 {
                 Image(uiImage: UIImage(data: samples.wrappedImg1)!)
                     .resizable()
                     .frame(width: 60, height: 60)
                     .overlay(Rectangle().stroke(Color.black))
-            } else {
-        Text(samples.wrappedText)
-            .lineLimit(1)
-            .frame(width: 60, height: 60)
+                    } else {
+                Text(samples.wrappedText)
+                    .lineLimit(1)
+                    .frame(width: 60, height: 60)
         }
     }
 }
