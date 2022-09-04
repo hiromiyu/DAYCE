@@ -7,6 +7,7 @@
 
 import SwiftUI
 import CoreData
+import PhotosUI
 
 struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
@@ -16,33 +17,38 @@ struct ContentView: View {
         sortDescriptors: [NSSortDescriptor(keyPath: \SampleData.date, ascending: false)],
         animation: .default)
     private var samples: FetchedResults<SampleData>
-    @State private var bool = false
+    @State private var showFavoritesOnly = false
+    @State private var selectedValue = Set<SampleData>()
+    @State private var isShowingDialog = false
+    @State var editMode: EditMode = .inactive
+    
+    var filteredsamples: [SampleData] {
+        samples.filter { sample in
+            (!showFavoritesOnly || sample.bool)
+        }
+    }
     
     var body: some View {
-        VStack {
+        
+        VStack(alignment: .trailing) {
             NavigationView {
-                List{
-                    ForEach(samples) { samples in
+                List(selection: $selectedValue) {
+                    Toggle(isOn: $showFavoritesOnly) {
+                        Text("お気に入り")
+                    }
+                    ForEach(filteredsamples) { samples in
                         NavigationLink {
-                            PhotoView(samples: samples)
+                            DayView(samples: samples)
                         } label: {
                             SampleCardView(sampleModel: sampleModel, samples: samples)
-                                .swipeActions(edge: .trailing, allowsFullSwipe: false) {
-                                    Button(role: .destructive, action: {
-                                        viewContext.delete(samples)
-                                        try!
-                                        viewContext.save()
-                                    }){
-                                        Text("削除")
-                                    Image(systemName: "trash")
-                                }
-                            }
                         }
                     }
-                    .onDelete {_ in
-                    }
+                    
+                    .onDelete(perform: deleteMemo(offsets:))
+                    
                 }
                 .navigationTitle("リスト")
+                .navigationBarTitleDisplayMode(.automatic)
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
                         HStack {
@@ -54,12 +60,46 @@ struct ContentView: View {
                             .sheet(isPresented: $sampleModel.isNewData, content: {
                                 SheetView(sampleModel: sampleModel)
                             })
-//                            EditButton()
+                            EditButton()
                         }
                     }
                 }
+                
+                .environment(\.editMode, $editMode)
+                
+            }
+            if editMode.isEditing {
+                Button(action: {
+                    isShowingDialog = true
+                }) {
+                    Image(systemName: "trash")
+                }.confirmationDialog("注意!", isPresented: $isShowingDialog) {
+                    Button("削除する", role: .destructive) {
+                        onDeleteSelectedButton()
+                    }
+                    Button("キャンセル", role: .cancel) {
+                        
+                    }
+                } message: {
+                    Text("削除すると戻せません")
+                }
+                .disabled(selectedValue.count == 0)
+                .padding()
             }
         }
+    }
+    public func onDeleteSelectedButton() {
+        for item in selectedValue {
+            viewContext.delete(item)
+        }
+        selectedValue = Set<SampleData>()
+    }
+    
+    private func deleteMemo(offsets:IndexSet) {
+        offsets.forEach { index in
+            viewContext.delete(samples[index])
+        }
+        try? viewContext.save()
     }
 }
 

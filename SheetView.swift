@@ -15,6 +15,13 @@ struct SheetView: View {
     @State private var isPicking: Bool = false
     @State private var images: [Data] = []
     @FocusState var focus: Bool
+    @State private var movieUrl: URL?
+    @State private var showPhotoLibraryMoviePickerView = false
+    @State private var showMoviePlayerView = false
+    
+    private var canPlayVideo: Bool {
+        movieUrl != nil
+    }
     
     var pickerConfig: PHPickerConfiguration {
         var config = PHPickerConfiguration(photoLibrary: PHPhotoLibrary.shared())
@@ -63,7 +70,24 @@ struct SheetView: View {
                     .frame(width: 30, height: 30)
                 Text("PHOTO")
             }
-//            .padding()
+                Spacer()
+                
+                VStack {
+                    
+                    Button {
+                        showPhotoLibraryMoviePickerView = true
+                    } label: {
+                        Text("MOVIE")
+                    }
+                }
+                .fullScreenCover(isPresented: $showPhotoLibraryMoviePickerView) {
+                    MoviePickerView(movieUrl: $movieUrl)
+                }
+                .fullScreenCover(isPresented: $showMoviePlayerView) {
+                    MoviePlayView(with: movieUrl)
+                }
+                
+                
                 Spacer()
                 if self.focus {
                 Button("キーボードを閉じる"){
@@ -123,16 +147,25 @@ struct SheetView: View {
                     .frame(width: 90, height: 90, alignment: .center)
                     .clipped()
                     .opacity(0.5)
+                    
                     Spacer()
                     
-//                    Image(uiImage: UIImage(data: sampleModel.image2) ??
-//                          UIImage(systemName: "person.crop.artframe")!)
-//                    .resizable()
-//                    .scaledToFill()
-//                    .frame(width: 90, height: 90, alignment: .center)
-//                    .clipped()
-//                    .opacity(0.5)
-//                    Spacer()
+                    Button {
+                        showMoviePlayerView = true
+                        
+                        guard let url = movieUrl else {
+                            return
+                        }
+                        print(url)
+                    } label: {
+                        Image(systemName: "play")
+                            .resizable()
+                            .frame(width: 80, height: 80)
+                            .foregroundColor(canPlayVideo ? .accentColor : .gray)
+                    }
+                    .disabled(!canPlayVideo)
+                    
+                    Spacer()
                 }
             }
         }

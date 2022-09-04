@@ -23,7 +23,6 @@ struct SampleCardView: View {
                 Text(samples.wrappedText)
                     .lineLimit(1)
                     .frame(width: 100)
-               
             }
             .contextMenu{
                 Button(action: {

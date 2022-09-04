@@ -16,11 +16,17 @@ struct PhotoView: View {
     @State var scale: CGFloat = 1.0
     @State var initialScale: CGFloat = 1.0
     @State var tapped = false
+    @State private var rotation = Angle.zero
     
-//    var tap: some Gesture {
-//        TapGesture(count: 2)
-//            .onEnded { _ in self.tapped = !self.tapped }
-//    }
+    var rotationGesture: some Gesture {
+        RotationGesture()
+            .onChanged { angle in
+                rotation = angle
+            }
+            .onEnded { angle in
+                rotation = angle
+            }
+    }
     
     var body: some View {
         let magnificationGesture = MagnificationGesture()
@@ -31,46 +37,32 @@ struct PhotoView: View {
             }
             .onEnded { _ in initialScale = scale }
         let dragGesture = DragGesture()
-            .onChanged { offset = CGSize(width: initialOffset.width + $0.translation.width, height: initialOffset.height + $0.translation.height) }
+            .onChanged { offset = CGSize(width: initialOffset.width + $0.translation.width,
+                                         height: initialOffset.height + $0.translation.height)
+            }
             .onEnded { _ in initialOffset = offset }
         
-       
-        
-        ScrollView {
-            Text(samples.wrappedText)
-                            .frame(width: 350)
-//            VStack {
             if samples.image1?.count ?? 0
                 != 0 {
                 Image(uiImage: UIImage(data: samples.wrappedImg1)!)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-//                    .frame(width: 400, height: 600)
-                    .clipShape(RoundedRectangle(cornerRadius: 20))
+//                    .clipShape(RoundedRectangle(cornerRadius: 20))
                     .padding()
-                    .onTapGesture(count: 2) {
-                        scale = 1.0
-                    }
                     .offset(offset)
                     .scaleEffect(scale)
-//                    .gesture(tap)
+                    .rotationEffect(rotation)
                     .gesture(SimultaneousGesture(magnificationGesture, dragGesture))
-//                    .animation(.default)
             }
             if samples.image2?.count ?? 0
                 != 0 {
                 Image(uiImage: UIImage(data: samples.wrappedImg2)!)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-//                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-//                    .padding()
                     .offset(offset)
                     .scaleEffect(scale)
                     .gesture(dragGesture)
                     .simultaneousGesture(magnificationGesture)
-//                    .animation(.default)
-//                }
             }
-        }
     }
 }

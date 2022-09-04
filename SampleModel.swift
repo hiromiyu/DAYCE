@@ -9,7 +9,8 @@ import Foundation
 import SwiftUI
 import CoreData
 
-class SampleModel :ObservableObject{
+class SampleModel :ObservableObject {
+   
     @Published var date = Date()
     @Published var id = UUID()
     @Published var bool = false

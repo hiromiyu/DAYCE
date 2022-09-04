@@ -7,12 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4520658328A4C45500D1F328 /* NoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4520658228A4C45500D1F328 /* NoteView.swift */; };
-		4520658528A4CBAB00D1F328 /* KeyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4520658428A4CBAB00D1F328 /* KeyView.swift */; };
+		45120D7F28B1D15F009AF074 /* DayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45120D7E28B1D15F009AF074 /* DayView.swift */; };
 		4524088F289A954D0027AF59 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4524088E289A954D0027AF59 /* MainView.swift */; };
 		45240891289A97C90027AF59 /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45240890289A97C90027AF59 /* LibraryView.swift */; };
 		45240893289A98700027AF59 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45240892289A98700027AF59 /* SettingView.swift */; };
 		45240895289AA4420027AF59 /* PhotoCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45240894289AA4420027AF59 /* PhotoCardView.swift */; };
+		4531AF8528AB81B8003F57F8 /* IconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4531AF8428AB81B8003F57F8 /* IconView.swift */; };
+		4581343028BB5E74001A121B /* MoviePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4581342F28BB5E74001A121B /* MoviePickerView.swift */; };
+		4581343228BB5F0F001A121B /* CameraPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4581343128BB5F0F001A121B /* CameraPickerView.swift */; };
+		4581343428BB5F95001A121B /* MoviePlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4581343328BB5F95001A121B /* MoviePlayView.swift */; };
 		45978E982898F1E600025136 /* PhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45978E972898F1E600025136 /* PhotoView.swift */; };
 		45BFD03A289538100050D064 /* Secret_DairyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BFD039289538100050D064 /* Secret_DairyApp.swift */; };
 		45BFD03C289538100050D064 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BFD03B289538100050D064 /* ContentView.swift */; };
@@ -29,13 +32,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4520658228A4C45500D1F328 /* NoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteView.swift; sourceTree = "<group>"; };
-		4520658428A4CBAB00D1F328 /* KeyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyView.swift; sourceTree = "<group>"; };
+		45120D7E28B1D15F009AF074 /* DayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayView.swift; sourceTree = "<group>"; };
 		4524088E289A954D0027AF59 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		45240890289A97C90027AF59 /* LibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryView.swift; sourceTree = "<group>"; };
 		45240892289A98700027AF59 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		45240894289AA4420027AF59 /* PhotoCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCardView.swift; sourceTree = "<group>"; };
-		45871A6928A7E7DA009F50F6 /* Secret-Dairy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Secret-Dairy-Info.plist"; sourceTree = SOURCE_ROOT; };
+		4531AF8428AB81B8003F57F8 /* IconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconView.swift; sourceTree = "<group>"; };
+		4581342F28BB5E74001A121B /* MoviePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviePickerView.swift; sourceTree = "<group>"; };
+		4581343128BB5F0F001A121B /* CameraPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPickerView.swift; sourceTree = "<group>"; };
+		4581343328BB5F95001A121B /* MoviePlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviePlayView.swift; sourceTree = "<group>"; };
 		45978E972898F1E600025136 /* PhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoView.swift; sourceTree = "<group>"; };
 		45BFD036289538100050D064 /* Secret Dairy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Secret Dairy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		45BFD039289538100050D064 /* Secret_DairyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secret_DairyApp.swift; sourceTree = "<group>"; };
@@ -70,6 +75,8 @@
 				45BFD04D28953B320050D064 /* SampleData+CoreDataProperties.swift */,
 				45BFD05028953BDC0050D064 /* SampleModel.swift */,
 				45BFD05228953C1E0050D064 /* PhotoPicker.swift */,
+				4581343128BB5F0F001A121B /* CameraPickerView.swift */,
+				4581342F28BB5E74001A121B /* MoviePickerView.swift */,
 				45BFD05428953CE70050D064 /* SheetView.swift */,
 				45BFD038289538100050D064 /* Secret Dairy */,
 				45BFD037289538100050D064 /* Products */,
@@ -87,17 +94,17 @@
 		45BFD038289538100050D064 /* Secret Dairy */ = {
 			isa = PBXGroup;
 			children = (
-				45871A6928A7E7DA009F50F6 /* Secret-Dairy-Info.plist */,
 				45BFD039289538100050D064 /* Secret_DairyApp.swift */,
 				45BFD03B289538100050D064 /* ContentView.swift */,
-				4520658228A4C45500D1F328 /* NoteView.swift */,
-				4520658428A4CBAB00D1F328 /* KeyView.swift */,
 				45240890289A97C90027AF59 /* LibraryView.swift */,
+				4581343328BB5F95001A121B /* MoviePlayView.swift */,
 				45240892289A98700027AF59 /* SettingView.swift */,
 				4524088E289A954D0027AF59 /* MainView.swift */,
+				4531AF8428AB81B8003F57F8 /* IconView.swift */,
 				45BFD05628953E090050D064 /* SampleCardView.swift */,
 				45240894289AA4420027AF59 /* PhotoCardView.swift */,
 				45978E972898F1E600025136 /* PhotoView.swift */,
+				45120D7E28B1D15F009AF074 /* DayView.swift */,
 				45BFD03D289538110050D064 /* Assets.xcassets */,
 				45BFD042289538110050D064 /* Persistence.swift */,
 				45BFD044289538110050D064 /* Secret_Dairy.xcdatamodeld */,
@@ -184,23 +191,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45120D7F28B1D15F009AF074 /* DayView.swift in Sources */,
+				4581343028BB5E74001A121B /* MoviePickerView.swift in Sources */,
 				45BFD043289538110050D064 /* Persistence.swift in Sources */,
 				4524088F289A954D0027AF59 /* MainView.swift in Sources */,
 				45BFD05528953CE70050D064 /* SheetView.swift in Sources */,
 				45240893289A98700027AF59 /* SettingView.swift in Sources */,
 				45BFD03C289538100050D064 /* ContentView.swift in Sources */,
 				45BFD03A289538100050D064 /* Secret_DairyApp.swift in Sources */,
-				4520658528A4CBAB00D1F328 /* KeyView.swift in Sources */,
 				45240891289A97C90027AF59 /* LibraryView.swift in Sources */,
 				45BFD04F28953B320050D064 /* SampleData+CoreDataProperties.swift in Sources */,
 				45978E982898F1E600025136 /* PhotoView.swift in Sources */,
 				45BFD05328953C1E0050D064 /* PhotoPicker.swift in Sources */,
-				4520658328A4C45500D1F328 /* NoteView.swift in Sources */,
 				45BFD05728953E090050D064 /* SampleCardView.swift in Sources */,
+				4531AF8528AB81B8003F57F8 /* IconView.swift in Sources */,
 				45BFD04E28953B320050D064 /* SampleData+CoreDataClass.swift in Sources */,
+				4581343428BB5F95001A121B /* MoviePlayView.swift in Sources */,
 				45240895289AA4420027AF59 /* PhotoCardView.swift in Sources */,
 				45BFD05128953BDC0050D064 /* SampleModel.swift in Sources */,
 				45BFD046289538110050D064 /* Secret_Dairy.xcdatamodeld in Sources */,
+				4581343228BB5F0F001A121B /* CameraPickerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -324,7 +334,7 @@
 		45BFD04A289538110050D064 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -336,8 +346,10 @@
 				INFOPLIST_KEY_CFBundleDisplayName = "";
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSCalendarsUsageDescription = "カレンダーを使います";
+				INFOPLIST_KEY_NSCameraUsageDescription = "カメラを使います";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "認証します";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "マイクを使います";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "フォトを書き込みます";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "フォトを使います";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -360,7 +372,7 @@
 		45BFD04B289538110050D064 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -372,8 +384,10 @@
 				INFOPLIST_KEY_CFBundleDisplayName = "";
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSCalendarsUsageDescription = "カレンダーを使います";
+				INFOPLIST_KEY_NSCameraUsageDescription = "カメラを使います";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "認証します";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "マイクを使います";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "フォトを書き込みます";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "フォトを使います";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

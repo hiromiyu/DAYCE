@@ -20,7 +20,8 @@ struct PhotoCardView: View {
                     .resizable()
                     .frame(width: 60, height: 60)
                     .overlay(Rectangle().stroke(Color.black))
-                    } else {
+                    }
+              else {
                 Text(samples.wrappedText)
                     .lineLimit(1)
                     .frame(width: 60, height: 60)

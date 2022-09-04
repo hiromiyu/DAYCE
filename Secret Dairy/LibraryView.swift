@@ -26,11 +26,11 @@ struct LibraryView: View {
         NavigationView {
             ScrollView {
                 LazyVGrid(columns: grids) {
-                ForEach(samples) { item in
+                    ForEach(samples) { item in
                     NavigationLink {
                         PhotoView(samples: item)
-                    } label: {
-                        PhotoCardView(samples: item, sampleModel: sampleModel) }
+                    } label: { PhotoCardView(samples: item, sampleModel: sampleModel)
+                        }
                     }
                 }
             .padding()
