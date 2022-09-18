@@ -11,6 +11,7 @@ struct PhotoView: View {
     @Environment(\.managedObjectContext)
     private var context
     @ObservedObject var samples : SampleData
+    @ObservedObject var sampleModel: SampleModel
     @State var offset: CGSize = .zero
     @State var initialOffset: CGSize = .zero
     @State var scale: CGFloat = 1.0
@@ -41,17 +42,18 @@ struct PhotoView: View {
                                          height: initialOffset.height + $0.translation.height)
             }
             .onEnded { _ in initialOffset = offset }
-        
+//        ScrollView {
             if samples.image1?.count ?? 0
                 != 0 {
                 Image(uiImage: UIImage(data: samples.wrappedImg1)!)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-//                    .clipShape(RoundedRectangle(cornerRadius: 20))
+                    .clipShape(RoundedRectangle(cornerRadius: 20))
                     .padding()
                     .offset(offset)
                     .scaleEffect(scale)
                     .rotationEffect(rotation)
+//                    .gesture(magnificationGesture)
                     .gesture(SimultaneousGesture(magnificationGesture, dragGesture))
             }
             if samples.image2?.count ?? 0
@@ -61,8 +63,9 @@ struct PhotoView: View {
                     .aspectRatio(contentMode: .fit)
                     .offset(offset)
                     .scaleEffect(scale)
-                    .gesture(dragGesture)
-                    .simultaneousGesture(magnificationGesture)
-            }
+//                    .gesture(dragGesture)
+//                    .simultaneousGesture(magnificationGesture)
+//            }
+        }
     }
 }

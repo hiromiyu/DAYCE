@@ -13,7 +13,7 @@ struct IconView: View {
             Image(systemName: "magazine")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-                .foregroundColor(Color.gray)
+                .foregroundColor(Color.purple)
                 .frame(width: 300, height: 300, alignment: .center)
             Image(systemName: "lock.fill")
                 .resizable()

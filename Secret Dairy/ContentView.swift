@@ -17,6 +17,7 @@ struct ContentView: View {
         sortDescriptors: [NSSortDescriptor(keyPath: \SampleData.date, ascending: false)],
         animation: .default)
     private var samples: FetchedResults<SampleData>
+
     @State private var showFavoritesOnly = false
     @State private var selectedValue = Set<SampleData>()
     @State private var isShowingDialog = false
@@ -38,7 +39,8 @@ struct ContentView: View {
                     }
                     ForEach(filteredsamples) { samples in
                         NavigationLink {
-                            DayView(samples: samples)
+//                            DayView(samples: samples)
+                            Mone(samples:samples)
                         } label: {
                             SampleCardView(sampleModel: sampleModel, samples: samples)
                         }
@@ -55,12 +57,12 @@ struct ContentView: View {
                             Button(action:{
                                 sampleModel.isNewData.toggle()
                             }){
-                                Text("追加")
+                                Image(systemName: "plus")
                             }
                             .sheet(isPresented: $sampleModel.isNewData, content: {
                                 SheetView(sampleModel: sampleModel)
                             })
-                            EditButton()
+//                            EditButton()
                         }
                     }
                 }
@@ -68,7 +70,7 @@ struct ContentView: View {
                 .environment(\.editMode, $editMode)
                 
             }
-            if editMode.isEditing {
+       /*     if editMode.isEditing {
                 Button(action: {
                     isShowingDialog = true
                 }) {
@@ -86,6 +88,7 @@ struct ContentView: View {
                 .disabled(selectedValue.count == 0)
                 .padding()
             }
+            */
         }
     }
     public func onDeleteSelectedButton() {

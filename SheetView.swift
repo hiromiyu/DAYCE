@@ -33,8 +33,9 @@ struct SheetView: View {
     }
     
     var body: some View {
-        VStack(alignment:.center) {
-            DatePicker("日付",selection:$sampleModel.date)
+        ScrollView {
+        VStack {
+            DatePicker("日付",selection:$sampleModel.date, displayedComponents: .date)
                                         .environment(\.locale, Locale(identifier: "ja_JP"))
             HStack {
                 Button("戻る", action:{
@@ -54,12 +55,11 @@ struct SheetView: View {
                 .disabled(sampleModel.text.isEmpty)
             }
             TextEditor(text: $sampleModel.text)
-                .frame(width: 300, height: 250)
                 .border(Color.gray)
                 .lineSpacing(5)
                 .padding()
                 .focused(self.$focus)
-            
+                
             HStack {
             Button(action: {
                 self.isPicking.toggle()
@@ -70,7 +70,7 @@ struct SheetView: View {
                     .frame(width: 30, height: 30)
                 Text("PHOTO")
             }
-                Spacer()
+         /*       Spacer()
                 
                 VStack {
                     
@@ -86,7 +86,7 @@ struct SheetView: View {
                 .fullScreenCover(isPresented: $showMoviePlayerView) {
                     MoviePlayView(with: movieUrl)
                 }
-                
+       */
                 
                 Spacer()
                 if self.focus {
@@ -149,7 +149,7 @@ struct SheetView: View {
                     .opacity(0.5)
                     
                     Spacer()
-                    
+           /*
                     Button {
                         showMoviePlayerView = true
                         
@@ -164,8 +164,9 @@ struct SheetView: View {
                             .foregroundColor(canPlayVideo ? .accentColor : .gray)
                     }
                     .disabled(!canPlayVideo)
-                    
-                    Spacer()
+         */
+//                    Spacer()
+                    }
                 }
             }
         }
@@ -178,5 +179,6 @@ struct SheetView_Previews: PreviewProvider {
         SheetView(sampleModel:SampleModel())
             .environment(\.managedObjectContext,
                           PersistenceController.preview.container.viewContext)
+            .previewInterfaceOrientation(.portrait)
     }
 }

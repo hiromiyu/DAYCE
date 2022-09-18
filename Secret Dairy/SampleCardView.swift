@@ -65,7 +65,7 @@ struct SampleCardView: View {
             }
         }
     }
-    private let itemFormatter: DateFormatter = {
+     let itemFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.calendar = Calendar(identifier: .gregorian)
         formatter.locale = Locale(identifier: "ja_JP")

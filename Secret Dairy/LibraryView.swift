@@ -26,10 +26,12 @@ struct LibraryView: View {
         NavigationView {
             ScrollView {
                 LazyVGrid(columns: grids) {
-                    ForEach(samples) { item in
+                    ForEach(samples) { samples in
                     NavigationLink {
-                        PhotoView(samples: item)
-                    } label: { PhotoCardView(samples: item, sampleModel: sampleModel)
+//                        PhotoView(samples: samples, sampleModel: sampleModel)
+                        ZoomView(samples:samples)
+
+                    } label: { PhotoCardView(samples: samples, sampleModel: sampleModel)
                         }
                     }
                 }
@@ -41,7 +43,7 @@ struct LibraryView: View {
                             Button(action:{
                                             sampleModel.isNewData.toggle()
                                         }){
-                                            Text("追加")
+                                            Image(systemName: "plus")
                                         }
                                         .sheet(isPresented: $sampleModel.isNewData, content: {
                                             SheetView(sampleModel: sampleModel)

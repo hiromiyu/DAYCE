@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		45072B5328C4AC0200F41B47 /* Scroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45072B5228C4AC0200F41B47 /* Scroll.swift */; };
 		45120D7F28B1D15F009AF074 /* DayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45120D7E28B1D15F009AF074 /* DayView.swift */; };
 		4524088F289A954D0027AF59 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4524088E289A954D0027AF59 /* MainView.swift */; };
 		45240891289A97C90027AF59 /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45240890289A97C90027AF59 /* LibraryView.swift */; };
@@ -17,6 +18,8 @@
 		4581343228BB5F0F001A121B /* CameraPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4581343128BB5F0F001A121B /* CameraPickerView.swift */; };
 		4581343428BB5F95001A121B /* MoviePlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4581343328BB5F95001A121B /* MoviePlayView.swift */; };
 		45978E982898F1E600025136 /* PhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45978E972898F1E600025136 /* PhotoView.swift */; };
+		45A2F5A728D723DE00EFA830 /* ImageModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A2F5A628D723DE00EFA830 /* ImageModifier.swift */; };
+		45A2F5A928D725E800EFA830 /* ZoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A2F5A828D725E800EFA830 /* ZoomView.swift */; };
 		45BFD03A289538100050D064 /* Secret_DairyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BFD039289538100050D064 /* Secret_DairyApp.swift */; };
 		45BFD03C289538100050D064 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BFD03B289538100050D064 /* ContentView.swift */; };
 		45BFD03E289538110050D064 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45BFD03D289538110050D064 /* Assets.xcassets */; };
@@ -29,9 +32,11 @@
 		45BFD05328953C1E0050D064 /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BFD05228953C1E0050D064 /* PhotoPicker.swift */; };
 		45BFD05528953CE70050D064 /* SheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BFD05428953CE70050D064 /* SheetView.swift */; };
 		45BFD05728953E090050D064 /* SampleCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BFD05628953E090050D064 /* SampleCardView.swift */; };
+		45F998F328D61A8C00A829F1 /* Mone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F998F228D61A8C00A829F1 /* Mone.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		45072B5228C4AC0200F41B47 /* Scroll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scroll.swift; sourceTree = "<group>"; };
 		45120D7E28B1D15F009AF074 /* DayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayView.swift; sourceTree = "<group>"; };
 		4524088E289A954D0027AF59 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		45240890289A97C90027AF59 /* LibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryView.swift; sourceTree = "<group>"; };
@@ -42,6 +47,8 @@
 		4581343128BB5F0F001A121B /* CameraPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPickerView.swift; sourceTree = "<group>"; };
 		4581343328BB5F95001A121B /* MoviePlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviePlayView.swift; sourceTree = "<group>"; };
 		45978E972898F1E600025136 /* PhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoView.swift; sourceTree = "<group>"; };
+		45A2F5A628D723DE00EFA830 /* ImageModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModifier.swift; sourceTree = "<group>"; };
+		45A2F5A828D725E800EFA830 /* ZoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomView.swift; sourceTree = "<group>"; };
 		45BFD036289538100050D064 /* Secret Dairy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Secret Dairy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		45BFD039289538100050D064 /* Secret_DairyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secret_DairyApp.swift; sourceTree = "<group>"; };
 		45BFD03B289538100050D064 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -55,6 +62,7 @@
 		45BFD05228953C1E0050D064 /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
 		45BFD05428953CE70050D064 /* SheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetView.swift; sourceTree = "<group>"; };
 		45BFD05628953E090050D064 /* SampleCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleCardView.swift; sourceTree = "<group>"; };
+		45F998F228D61A8C00A829F1 /* Mone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mone.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,7 +112,11 @@
 				45BFD05628953E090050D064 /* SampleCardView.swift */,
 				45240894289AA4420027AF59 /* PhotoCardView.swift */,
 				45978E972898F1E600025136 /* PhotoView.swift */,
+				45A2F5A828D725E800EFA830 /* ZoomView.swift */,
+				45072B5228C4AC0200F41B47 /* Scroll.swift */,
 				45120D7E28B1D15F009AF074 /* DayView.swift */,
+				45F998F228D61A8C00A829F1 /* Mone.swift */,
+				45A2F5A628D723DE00EFA830 /* ImageModifier.swift */,
 				45BFD03D289538110050D064 /* Assets.xcassets */,
 				45BFD042289538110050D064 /* Persistence.swift */,
 				45BFD044289538110050D064 /* Secret_Dairy.xcdatamodeld */,
@@ -191,6 +203,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45F998F328D61A8C00A829F1 /* Mone.swift in Sources */,
+				45A2F5A928D725E800EFA830 /* ZoomView.swift in Sources */,
 				45120D7F28B1D15F009AF074 /* DayView.swift in Sources */,
 				4581343028BB5E74001A121B /* MoviePickerView.swift in Sources */,
 				45BFD043289538110050D064 /* Persistence.swift in Sources */,
@@ -202,6 +216,7 @@
 				45240891289A97C90027AF59 /* LibraryView.swift in Sources */,
 				45BFD04F28953B320050D064 /* SampleData+CoreDataProperties.swift in Sources */,
 				45978E982898F1E600025136 /* PhotoView.swift in Sources */,
+				45072B5328C4AC0200F41B47 /* Scroll.swift in Sources */,
 				45BFD05328953C1E0050D064 /* PhotoPicker.swift in Sources */,
 				45BFD05728953E090050D064 /* SampleCardView.swift in Sources */,
 				4531AF8528AB81B8003F57F8 /* IconView.swift in Sources */,
@@ -209,6 +224,7 @@
 				4581343428BB5F95001A121B /* MoviePlayView.swift in Sources */,
 				45240895289AA4420027AF59 /* PhotoCardView.swift in Sources */,
 				45BFD05128953BDC0050D064 /* SampleModel.swift in Sources */,
+				45A2F5A728D723DE00EFA830 /* ImageModifier.swift in Sources */,
 				45BFD046289538110050D064 /* Secret_Dairy.xcdatamodeld in Sources */,
 				4581343228BB5F0F001A121B /* CameraPickerView.swift in Sources */,
 			);
