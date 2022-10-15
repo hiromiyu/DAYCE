@@ -16,7 +16,9 @@ struct ContentView: View {
         entity:SampleData.entity(),
         sortDescriptors: [NSSortDescriptor(keyPath: \SampleData.date, ascending: false)],
         animation: .default)
-    private var samples: FetchedResults<SampleData>
+    private var sampleis: FetchedResults<SampleData>
+    @ObservedObject var samples : SampleData
+
 
     @State private var showFavoritesOnly = false
     @State private var selectedValue = Set<SampleData>()
@@ -24,7 +26,7 @@ struct ContentView: View {
     @State var editMode: EditMode = .inactive
     
     var filteredsamples: [SampleData] {
-        samples.filter { sample in
+        sampleis.filter { sample in
             (!showFavoritesOnly || sample.bool)
         }
     }
@@ -38,19 +40,15 @@ struct ContentView: View {
                         Text("お気に入り")
                     }
                     ForEach(filteredsamples) { samples in
-                        NavigationLink {
-//                            DayView(samples: samples)
-                            Mone(samples:samples)
-                        } label: {
+//                        NavigationLink {
+//                            Mone(samples:samples)
+//                        } label: {
                             SampleCardView(sampleModel: sampleModel, samples: samples)
-                        }
-                    }
-                    
-                    .onDelete(perform: deleteMemo(offsets:))
-                    
+//                        }
+                    }.onDelete(perform: deleteMemo(offsets:))
                 }
-                .navigationTitle("リスト")
-                .navigationBarTitleDisplayMode(.automatic)
+                .navigationTitle("日記")
+                .navigationBarTitleDisplayMode(.large)
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
                         HStack {
@@ -67,10 +65,10 @@ struct ContentView: View {
                     }
                 }
                 
-                .environment(\.editMode, $editMode)
+//                .environment(\.editMode, $editMode)
                 
             }
-       /*     if editMode.isEditing {
+    /*       if editMode.isEditing {
                 Button(action: {
                     isShowingDialog = true
                 }) {
@@ -85,7 +83,7 @@ struct ContentView: View {
                 } message: {
                     Text("削除すると戻せません")
                 }
-                .disabled(selectedValue.count == 0)
+                .disabled(selectedValue.isEmpty)
                 .padding()
             }
             */
@@ -100,7 +98,7 @@ struct ContentView: View {
     
     private func deleteMemo(offsets:IndexSet) {
         offsets.forEach { index in
-            viewContext.delete(samples[index])
+            viewContext.delete(sampleis[index])
         }
         try? viewContext.save()
     }
@@ -108,7 +106,7 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(samples: SampleData())
             .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }

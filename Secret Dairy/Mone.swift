@@ -8,67 +8,60 @@
 import SwiftUI
 
 struct Mone: View {
-    @SceneStorage("isZooming") var isZooming: Bool = false
+//    @SceneStorage("isZooming") var isZooming: Bool = false
     
     @Environment(\.managedObjectContext)
     private var context
     @ObservedObject var samples : SampleData
+    @StateObject private var sampleModel = SampleModel()
+    @FetchRequest(
+        entity:SampleData.entity(),
+        sortDescriptors: [NSSortDescriptor(keyPath: \SampleData.date, ascending: false)],
+        animation: .default)
+    private var sampleis: FetchedResults<SampleData>
+    @Binding var isShowDetail: Bool
 
     var body: some View {
         
-//        ScrollView(.vertical, showsIndicators: false) {
-        ScrollView {
-
-//            VStack {
-//                Image("car")
-//                    .resizable()
-//                    .aspectRatio(contentMode: .fill)
-//                    .frame(width: getRect().width - 30, height: 250)
-//                    .cornerRadius(15)
-//                    .addPinchZoom()
-                
+        ScrollView (showsIndicators: false) {
+//            LazyVStack {
+//                ForEach(sampleis) { samples in
                 Text(samples.wrappedText)
                     .frame(width: 350)
                 if samples.image1?.count ?? 0
                     != 0 {
                         Image(uiImage: UIImage(data: samples.wrappedImg1)!)
                             .resizable()
-                            .aspectRatio(contentMode: .fill)
-//                            .frame(width: getRect().width - 30, height: 250)
-                            .frame(width: getRect().width - 30)
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: getRect().width)
                             .addPinchZoom()
-                        }
-                
-//            }
-//            .padding()
+                            .navigationBarTitleDisplayMode(.inline)
+//                            .edgesIgnoringSafeArea(.all)
+//                            .statusBarHidden()
+                            
+            }
         }
+        .onTapGesture {
+        //                                var transaction = Transaction()
+        //                                transaction.disablesAnimations = true
+        //                                withTransaction(transaction) {
+                                            self.isShowDetail = false
+        //                                }
+                                    }
+        .navigationBarTitleDisplayMode(.inline)
         .safeAreaInset(edge: .top) {
             HStack {
-//                Button {
-                    
-//                } label: {
-//                    Image(systemName: "camera.fill")
-//                }
-                
                 Spacer()
-                
-//                Button {
-                    
-//                } label: {
-//                    Image(systemName: "paperplane.fill")
-//               }
             }
             .overlay {
-//                Text("Instagram")
-                Text(samples.wrappedDate,
-                     formatter: itemFormatter)
-//                    .font(.title3.bold())
+                    Text(samples.wrappedDate,
+                         formatter: itemFormatter)
             }
             .padding()
             .foregroundColor(.primary)
             .background(.ultraThinMaterial)
-            .offset(y: isZooming ? -200 : 0)
-            .animation(.easeInOut, value: isZooming)
+//            .offset(y: isZooming ? -200 : 0)
+//            .animation(.easeInOut, value: isZooming)
         }
     }
     let itemFormatter: DateFormatter = {
@@ -83,12 +76,7 @@ struct Mone: View {
     
 }
 
-//struct Mone_Previews: PreviewProvider {
-//    static var previews: some View {
-//        Mone( samples:  SampleData())
-//            .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
-//    }
-//}
+
 
 extension View {
     func addPinchZoom()->some View {

@@ -34,7 +34,7 @@ struct ImageModifier: ViewModifier {
                 .modifier(PinchToZoom(minScale: min, maxScale: max, scale: $currentScale))
         }
         .gesture(doubleTapGesture)
-        .animation(.default, value: currentScale)
+        .animation(.easeInOut, value: currentScale)
     }
 }
 
@@ -110,7 +110,7 @@ struct PinchToZoom: ViewModifier {
     func body(content: Content) -> some View {
         content
             .scaleEffect(scale, anchor: anchor)
-            .animation(.default, value: isPinching)
+            .animation(.spring(), value: isPinching)
             .overlay(PinchZoom(minScale: minScale, maxScale: maxScale, scale: $scale, isPinching: $isPinching))
     }
 }

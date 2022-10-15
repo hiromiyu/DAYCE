@@ -17,30 +17,42 @@ struct MainView: View {
         animation: .default)
     private var samples: FetchedResults<SampleData>
     
-    @State var selectedTag = 1
+    @State private var selectedTag = 1
     init() {
         UITabBar.appearance().backgroundColor = .systemGray6
     }
     
     var body: some View {
         TabView(selection: $selectedTag) {
-            ContentView()
+            ContentView(samples: SampleData())
                 .tabItem {
                     Image(systemName: "list.bullet")
-                    Text("リスト")
+                    Text("日記リスト")
                 }.tag(1)
             
-            LibraryView()
+            ListScrollView(samples: SampleData())
+                .tabItem {
+                    Image(systemName: "scroll")
+                    Text("日記")
+                }.tag(2)
+            
+            LibraryView(samples: SampleData())
                 .tabItem {
                     Image(systemName: "photo.on.rectangle")
+                    Text("写真一覧")
+                }.tag(3)
+            
+            PhotoScrollView(samples: SampleData())
+                .tabItem {
+                    Image(systemName: "scroll.fill")
                     Text("写真")
-                }.tag(2)
+                }.tag(4)
             
             SettingView()
                 .tabItem {
                     Image(systemName: "gearshape")
                     Text("設定")
-                }.tag(3)
+                }.tag(5)
         }
     }
 }

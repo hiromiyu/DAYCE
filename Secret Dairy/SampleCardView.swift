@@ -12,6 +12,7 @@ struct SampleCardView: View {
     private var context
     @ObservedObject var sampleModel: SampleModel
     @ObservedObject var samples: SampleData
+    @State var isShowDetail: Bool = false
     
     var body: some View {
         HStack {
@@ -64,6 +65,18 @@ struct SampleCardView: View {
                     .frame(width: 50, height: 50)
             }
         }
+        
+        .onTapGesture {
+//                                var transaction = Transaction()
+//                                transaction.disablesAnimations = true
+//                                withTransaction(transaction) {
+            self.isShowDetail = true
+//                                }
+        }
+        .fullScreenCover(isPresented: $isShowDetail) {
+            Mone(samples: samples, isShowDetail: $isShowDetail)
+            //            }
+        }
     }
      let itemFormatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -78,7 +91,7 @@ struct SampleCardView: View {
 
 struct SampleCardView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(samples: SampleData())
             .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }

@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		45072B5328C4AC0200F41B47 /* Scroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45072B5228C4AC0200F41B47 /* Scroll.swift */; };
 		45120D7F28B1D15F009AF074 /* DayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45120D7E28B1D15F009AF074 /* DayView.swift */; };
+		45150CEA28E96F7800147ADF /* ListScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45150CE928E96F7800147ADF /* ListScrollView.swift */; };
+		45150CEC28E96F9600147ADF /* PhotoScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45150CEB28E96F9600147ADF /* PhotoScrollView.swift */; };
 		4524088F289A954D0027AF59 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4524088E289A954D0027AF59 /* MainView.swift */; };
 		45240891289A97C90027AF59 /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45240890289A97C90027AF59 /* LibraryView.swift */; };
 		45240893289A98700027AF59 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45240892289A98700027AF59 /* SettingView.swift */; };
@@ -32,12 +33,15 @@
 		45BFD05328953C1E0050D064 /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BFD05228953C1E0050D064 /* PhotoPicker.swift */; };
 		45BFD05528953CE70050D064 /* SheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BFD05428953CE70050D064 /* SheetView.swift */; };
 		45BFD05728953E090050D064 /* SampleCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BFD05628953E090050D064 /* SampleCardView.swift */; };
+		45D8C80728F165AC00E66C22 /* FullPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D8C80628F165AC00E66C22 /* FullPhotoView.swift */; };
+		45D905E428E884B100909107 /* ZoomableScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D905E328E884B100909107 /* ZoomableScrollView.swift */; };
 		45F998F328D61A8C00A829F1 /* Mone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F998F228D61A8C00A829F1 /* Mone.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		45072B5228C4AC0200F41B47 /* Scroll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scroll.swift; sourceTree = "<group>"; };
 		45120D7E28B1D15F009AF074 /* DayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayView.swift; sourceTree = "<group>"; };
+		45150CE928E96F7800147ADF /* ListScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListScrollView.swift; sourceTree = "<group>"; };
+		45150CEB28E96F9600147ADF /* PhotoScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoScrollView.swift; sourceTree = "<group>"; };
 		4524088E289A954D0027AF59 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		45240890289A97C90027AF59 /* LibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryView.swift; sourceTree = "<group>"; };
 		45240892289A98700027AF59 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
@@ -62,6 +66,8 @@
 		45BFD05228953C1E0050D064 /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
 		45BFD05428953CE70050D064 /* SheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetView.swift; sourceTree = "<group>"; };
 		45BFD05628953E090050D064 /* SampleCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleCardView.swift; sourceTree = "<group>"; };
+		45D8C80628F165AC00E66C22 /* FullPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullPhotoView.swift; sourceTree = "<group>"; };
+		45D905E328E884B100909107 /* ZoomableScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomableScrollView.swift; sourceTree = "<group>"; };
 		45F998F228D61A8C00A829F1 /* Mone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mone.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -103,20 +109,23 @@
 			isa = PBXGroup;
 			children = (
 				45BFD039289538100050D064 /* Secret_DairyApp.swift */,
+				4524088E289A954D0027AF59 /* MainView.swift */,
+				45150CE928E96F7800147ADF /* ListScrollView.swift */,
+				45150CEB28E96F9600147ADF /* PhotoScrollView.swift */,
 				45BFD03B289538100050D064 /* ContentView.swift */,
+				45F998F228D61A8C00A829F1 /* Mone.swift */,
 				45240890289A97C90027AF59 /* LibraryView.swift */,
+				45A2F5A828D725E800EFA830 /* ZoomView.swift */,
+				45A2F5A628D723DE00EFA830 /* ImageModifier.swift */,
 				4581343328BB5F95001A121B /* MoviePlayView.swift */,
 				45240892289A98700027AF59 /* SettingView.swift */,
-				4524088E289A954D0027AF59 /* MainView.swift */,
 				4531AF8428AB81B8003F57F8 /* IconView.swift */,
 				45BFD05628953E090050D064 /* SampleCardView.swift */,
 				45240894289AA4420027AF59 /* PhotoCardView.swift */,
 				45978E972898F1E600025136 /* PhotoView.swift */,
-				45A2F5A828D725E800EFA830 /* ZoomView.swift */,
-				45072B5228C4AC0200F41B47 /* Scroll.swift */,
+				45D905E328E884B100909107 /* ZoomableScrollView.swift */,
 				45120D7E28B1D15F009AF074 /* DayView.swift */,
-				45F998F228D61A8C00A829F1 /* Mone.swift */,
-				45A2F5A628D723DE00EFA830 /* ImageModifier.swift */,
+				45D8C80628F165AC00E66C22 /* FullPhotoView.swift */,
 				45BFD03D289538110050D064 /* Assets.xcassets */,
 				45BFD042289538110050D064 /* Persistence.swift */,
 				45BFD044289538110050D064 /* Secret_Dairy.xcdatamodeld */,
@@ -212,20 +221,23 @@
 				45BFD05528953CE70050D064 /* SheetView.swift in Sources */,
 				45240893289A98700027AF59 /* SettingView.swift in Sources */,
 				45BFD03C289538100050D064 /* ContentView.swift in Sources */,
+				45D8C80728F165AC00E66C22 /* FullPhotoView.swift in Sources */,
 				45BFD03A289538100050D064 /* Secret_DairyApp.swift in Sources */,
 				45240891289A97C90027AF59 /* LibraryView.swift in Sources */,
 				45BFD04F28953B320050D064 /* SampleData+CoreDataProperties.swift in Sources */,
 				45978E982898F1E600025136 /* PhotoView.swift in Sources */,
-				45072B5328C4AC0200F41B47 /* Scroll.swift in Sources */,
 				45BFD05328953C1E0050D064 /* PhotoPicker.swift in Sources */,
+				45150CEC28E96F9600147ADF /* PhotoScrollView.swift in Sources */,
 				45BFD05728953E090050D064 /* SampleCardView.swift in Sources */,
 				4531AF8528AB81B8003F57F8 /* IconView.swift in Sources */,
 				45BFD04E28953B320050D064 /* SampleData+CoreDataClass.swift in Sources */,
 				4581343428BB5F95001A121B /* MoviePlayView.swift in Sources */,
+				45D905E428E884B100909107 /* ZoomableScrollView.swift in Sources */,
 				45240895289AA4420027AF59 /* PhotoCardView.swift in Sources */,
 				45BFD05128953BDC0050D064 /* SampleModel.swift in Sources */,
 				45A2F5A728D723DE00EFA830 /* ImageModifier.swift in Sources */,
 				45BFD046289538110050D064 /* Secret_Dairy.xcdatamodeld in Sources */,
+				45150CEA28E96F7800147ADF /* ListScrollView.swift in Sources */,
 				4581343228BB5F0F001A121B /* CameraPickerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -350,7 +362,7 @@
 		45BFD04A289538110050D064 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon 2";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -388,7 +400,7 @@
 		45BFD04B289538110050D064 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon 2";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;

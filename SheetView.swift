@@ -52,7 +52,7 @@ struct SheetView: View {
                 Button("追加", action:{
                     sampleModel.writeData(context:context)
                 })
-                .disabled(sampleModel.text.isEmpty)
+                .disabled(sampleModel.text.isEmpty || sampleModel.image1.isEmpty)
             }
             TextEditor(text: $sampleModel.text)
                 .border(Color.gray)
@@ -141,13 +141,12 @@ struct SheetView: View {
             default:
                 HStack {
                     Image(uiImage: UIImage(data: sampleModel.image1) ??
-                          UIImage(systemName: "person.crop.artframe")!)
+                          UIImage(systemName: "photo")!)
                     .resizable()
                     .scaledToFill()
                     .frame(width: 90, height: 90, alignment: .center)
                     .clipped()
                     .opacity(0.5)
-                    
                     Spacer()
            /*
                     Button {

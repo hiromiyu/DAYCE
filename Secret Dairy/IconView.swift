@@ -9,19 +9,25 @@ import SwiftUI
 
 struct IconView: View {
     var body: some View {
-        ZStack {
-            Image(systemName: "magazine")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .foregroundColor(Color.purple)
-                .frame(width: 300, height: 300, alignment: .center)
-            Image(systemName: "lock.fill")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .foregroundColor(Color.yellow)
-                .padding(.vertical, 12.0)
-                .frame(width: 100.0, height: 100.0)
-                .position(x: 160, y: 360)
+        ZStack() {
+            Rectangle()
+                .foregroundColor(.purple)
+//                .rotationEffect(.degrees(45))
+//                .position(x: 300 ,y: 550)
+            ZStack() {
+                Image(systemName: "magazine")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .foregroundColor(.white)
+                    .frame(width: 300, height: 270, alignment: .center)
+                Image(systemName: "photo")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .foregroundColor(Color.white)
+                    .padding(.vertical, 12.0)
+                    .frame(width: 100.0, height: 100.0)
+                    .position(x: 178, y: 410)
+            }
         }
     }
 }

@@ -10,54 +10,57 @@ import SwiftUI
 struct LibraryView: View {
     @Environment(\.managedObjectContext) private var viewContext
     @StateObject private var sampleModel = SampleModel()
-
     @FetchRequest(
         entity:SampleData.entity(),
         sortDescriptors: [NSSortDescriptor(keyPath: \SampleData.date, ascending: false)],
         animation: .default)
-    private var samples: FetchedResults<SampleData>
+    private var sampleis: FetchedResults<SampleData>
+    @ObservedObject var samples : SampleData
     
     let grids = [
         GridItem(.adaptive(minimum: 50, maximum: .infinity))
     ]
+    @State var isShow: Bool = false
     
     var body: some View {
-        VStack {
+//        VStack {
         NavigationView {
             ScrollView {
                 LazyVGrid(columns: grids) {
-                    ForEach(samples) { samples in
-                    NavigationLink {
-//                        PhotoView(samples: samples, sampleModel: sampleModel)
-                        ZoomView(samples:samples)
-
-                    } label: { PhotoCardView(samples: samples, sampleModel: sampleModel)
-                        }
+                    ForEach(sampleis) { samples in
+                        PhotoCardView(samples: samples, sampleModel: sampleModel)
+                        //                            NavigationLink {
+                        //   PhotoScrollView(samples: samples)
+                        //                                DayView(samples:samples)
+                        //                            }
+                        //                        PhotoView(samples: samples, sampleModel: sampleModel)
+                        //                        label: { PhotoCardView(samples: samples, sampleModel: sampleModel)
                     }
                 }
             .padding()
             }
         .navigationTitle("写真")
-        .toolbar {
-                        ToolbarItem(placement: .navigationBarTrailing) {
-                            Button(action:{
-                                            sampleModel.isNewData.toggle()
-                                        }){
-                                            Image(systemName: "plus")
-                                        }
-                                        .sheet(isPresented: $sampleModel.isNewData, content: {
-                                            SheetView(sampleModel: sampleModel)
-                        })
-                    }
-                }
-            }
+        .navigationBarTitleDisplayMode(.large)
+//        .toolbar {
+//                        ToolbarItem(placement: .navigationBarTrailing) {
+//                            Button(action:{
+//                                            sampleModel.isNewData.toggle()
+//                                        }){
+//                                            Image(systemName: "plus")
+//                                        }
+//                                        .sheet(isPresented: $sampleModel.isNewData, content: {
+//                                            SheetView(sampleModel: sampleModel)
+//                        })
+//                    }
+//                }
+//            }
         }
     }
 }
 
 struct LibraryView_Previews: PreviewProvider {
     static var previews: some View {
-        LibraryView()
+        LibraryView(samples: SampleData())
             .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }
