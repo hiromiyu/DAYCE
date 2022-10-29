@@ -32,18 +32,19 @@ struct ContentView: View {
 //    let backgroundColor = LinearGradient(gradient: Gradient(colors: [.white, .purple]), startPoint: .top, endPoint: .bottom)
     
     var body: some View {
-            VStack(alignment: .trailing) {
+        ScrollView {
+            LazyVStack(alignment: .trailing) {
                 NavigationView {
                     List {
                         Toggle(isOn: $showFavoritesOnly) {
                             Text("お気に入り")
                         }
                         ForEach(filteredsamples) { samples in
-                                                    NavigationLink {
-                                                        Mone(samples:samples)
-                                                    } label: {
+                                NavigationLink {
+                                    Mone(samples:samples)
+                            } label: {
                             SampleCardView(sampleModel: sampleModel, samples: samples)
-                                                    }
+                            }
                         }.onDelete(perform: deleteMemo(offsets:))
                     }
                     .navigationTitle("日記")
@@ -60,6 +61,7 @@ struct ContentView: View {
                                     SheetView(sampleModel: sampleModel)
                                 })
                                 //                            EditButton()
+                            }
                         }
                     }
                 }
