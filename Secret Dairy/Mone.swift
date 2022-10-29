@@ -19,7 +19,8 @@ struct Mone: View {
         sortDescriptors: [NSSortDescriptor(keyPath: \SampleData.date, ascending: false)],
         animation: .default)
     private var sampleis: FetchedResults<SampleData>
-    @Binding var isShowDetail: Bool
+//    @Binding var isShowDetail: Bool
+    @Environment(\.dismiss) private var dismiss
 
     var body: some View {
         
@@ -42,12 +43,14 @@ struct Mone: View {
             }
         }
         .onTapGesture {
-        //                                var transaction = Transaction()
-        //                                transaction.disablesAnimations = true
-        //                                withTransaction(transaction) {
-                                            self.isShowDetail = false
-        //                                }
+            var transaction = Transaction()
+                transaction.disablesAnimations = true
+                withTransaction(transaction) {
+            dismiss()
+//                isShowDetail = false
+                                        }
                                     }
+        
         .navigationBarTitleDisplayMode(.inline)
         .safeAreaInset(edge: .top) {
             HStack {

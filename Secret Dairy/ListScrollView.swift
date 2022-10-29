@@ -17,14 +17,16 @@ struct ListScrollView: View {
         animation: .default)
     private var sampleis: FetchedResults<SampleData>
     @ObservedObject var samples : SampleData
-    @State var isShowDetail: Bool = false
+    @State private var isShowDetail: Bool = false
     
     var body: some View {
         ScrollView {
                 LazyVStack {
-                        ForEach(sampleis) { item in
-                            Mone(samples: item, isShowDetail: $isShowDetail) }
-                        .scaledToFit()
+                    ForEach(sampleis) { item in
+                        //                        Mone(samples: item, isShowDetail: $isShowDetail) }
+                        PhotoView(samples: item)
+                    }
+//                        .scaledToFit()
 //                        .frame(width: .infinity, height: .infinity)
 //                        .frame(width:UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
 //                    .tabViewStyle(PageTabViewStyle())

@@ -20,10 +20,10 @@ struct PhotoScrollView: View {
 
     var body: some View {
         ScrollView (.horizontal) {
-                LazyHStack {
+            LazyHStack(spacing: 0) {
 //                    TabView {
                     ForEach(sampleis) { samples in
-                        DayView(samples: samples)
+                        DayView(samples: samples, sampleModel: sampleModel)
                     }
 //                }
                 .frame(width:UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)

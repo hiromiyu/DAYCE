@@ -12,7 +12,7 @@ struct PhotoCardView: View {
     private var context
     @ObservedObject var samples: SampleData
     @ObservedObject var sampleModel: SampleModel
-    @State var isShowDetail: Bool = false
+    @State private var isShowDetail: Bool = false
 
     var body: some View {
         if samples.image1?.count ?? 0
@@ -26,13 +26,15 @@ struct PhotoCardView: View {
                                         var transaction = Transaction()
                                         transaction.disablesAnimations = true
                                         withTransaction(transaction) {
-                    self.isShowDetail = true
+                    isShowDetail = true
                                         }
                 }
                 .fullScreenCover(isPresented: $isShowDetail) {
-                    FullPhotoView(samples: samples, isShowDetail: $isShowDetail)
+                    FullPhotoView(samples: samples)
                     //            }
-                }
+                    //                }
+                
+            }
         }
 //              else {
 //                Text(samples.wrappedText)

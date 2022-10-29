@@ -19,6 +19,8 @@
 		4581343228BB5F0F001A121B /* CameraPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4581343128BB5F0F001A121B /* CameraPickerView.swift */; };
 		4581343428BB5F95001A121B /* MoviePlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4581343328BB5F95001A121B /* MoviePlayView.swift */; };
 		45978E982898F1E600025136 /* PhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45978E972898F1E600025136 /* PhotoView.swift */; };
+		45A2DFE0290D008300E2D94E /* PrivacyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A2DFDF290D008300E2D94E /* PrivacyView.swift */; };
+		45A2DFE2290D029300E2D94E /* Terms Of ServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A2DFE1290D029300E2D94E /* Terms Of ServiceView.swift */; };
 		45A2F5A728D723DE00EFA830 /* ImageModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A2F5A628D723DE00EFA830 /* ImageModifier.swift */; };
 		45A2F5A928D725E800EFA830 /* ZoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A2F5A828D725E800EFA830 /* ZoomView.swift */; };
 		45BFD03A289538100050D064 /* Secret_DairyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BFD039289538100050D064 /* Secret_DairyApp.swift */; };
@@ -51,9 +53,11 @@
 		4581343128BB5F0F001A121B /* CameraPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPickerView.swift; sourceTree = "<group>"; };
 		4581343328BB5F95001A121B /* MoviePlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviePlayView.swift; sourceTree = "<group>"; };
 		45978E972898F1E600025136 /* PhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoView.swift; sourceTree = "<group>"; };
+		45A2DFDF290D008300E2D94E /* PrivacyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyView.swift; sourceTree = "<group>"; };
+		45A2DFE1290D029300E2D94E /* Terms Of ServiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Terms Of ServiceView.swift"; sourceTree = "<group>"; };
 		45A2F5A628D723DE00EFA830 /* ImageModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModifier.swift; sourceTree = "<group>"; };
 		45A2F5A828D725E800EFA830 /* ZoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomView.swift; sourceTree = "<group>"; };
-		45BFD036289538100050D064 /* Secret Dairy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Secret Dairy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		45BFD036289538100050D064 /* DAYCE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DAYCE.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45BFD039289538100050D064 /* Secret_DairyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secret_DairyApp.swift; sourceTree = "<group>"; };
 		45BFD03B289538100050D064 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		45BFD03D289538110050D064 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -100,7 +104,7 @@
 		45BFD037289538100050D064 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				45BFD036289538100050D064 /* Secret Dairy.app */,
+				45BFD036289538100050D064 /* DAYCE.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -119,6 +123,8 @@
 				45A2F5A628D723DE00EFA830 /* ImageModifier.swift */,
 				4581343328BB5F95001A121B /* MoviePlayView.swift */,
 				45240892289A98700027AF59 /* SettingView.swift */,
+				45A2DFDF290D008300E2D94E /* PrivacyView.swift */,
+				45A2DFE1290D029300E2D94E /* Terms Of ServiceView.swift */,
 				4531AF8428AB81B8003F57F8 /* IconView.swift */,
 				45BFD05628953E090050D064 /* SampleCardView.swift */,
 				45240894289AA4420027AF59 /* PhotoCardView.swift */,
@@ -145,9 +151,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		45BFD035289538100050D064 /* Secret Dairy */ = {
+		45BFD035289538100050D064 /* DAYCE */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 45BFD049289538110050D064 /* Build configuration list for PBXNativeTarget "Secret Dairy" */;
+			buildConfigurationList = 45BFD049289538110050D064 /* Build configuration list for PBXNativeTarget "DAYCE" */;
 			buildPhases = (
 				45BFD032289538100050D064 /* Sources */,
 				45BFD033289538100050D064 /* Frameworks */,
@@ -157,9 +163,9 @@
 			);
 			dependencies = (
 			);
-			name = "Secret Dairy";
+			name = DAYCE;
 			productName = "Secret Dairy";
-			productReference = 45BFD036289538100050D064 /* Secret Dairy.app */;
+			productReference = 45BFD036289538100050D064 /* DAYCE.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -177,7 +183,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 45BFD031289538100050D064 /* Build configuration list for PBXProject "Secret Dairy" */;
+			buildConfigurationList = 45BFD031289538100050D064 /* Build configuration list for PBXProject "DAYCE" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -190,7 +196,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				45BFD035289538100050D064 /* Secret Dairy */,
+				45BFD035289538100050D064 /* DAYCE */,
 			);
 		};
 /* End PBXProject section */
@@ -212,11 +218,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45A2DFE2290D029300E2D94E /* Terms Of ServiceView.swift in Sources */,
 				45F998F328D61A8C00A829F1 /* Mone.swift in Sources */,
 				45A2F5A928D725E800EFA830 /* ZoomView.swift in Sources */,
 				45120D7F28B1D15F009AF074 /* DayView.swift in Sources */,
 				4581343028BB5E74001A121B /* MoviePickerView.swift in Sources */,
 				45BFD043289538110050D064 /* Persistence.swift in Sources */,
+				45A2DFE0290D008300E2D94E /* PrivacyView.swift in Sources */,
 				4524088F289A954D0027AF59 /* MainView.swift in Sources */,
 				45BFD05528953CE70050D064 /* SheetView.swift in Sources */,
 				45240893289A98700027AF59 /* SettingView.swift in Sources */,
@@ -438,7 +446,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		45BFD031289538100050D064 /* Build configuration list for PBXProject "Secret Dairy" */ = {
+		45BFD031289538100050D064 /* Build configuration list for PBXProject "DAYCE" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				45BFD047289538110050D064 /* Debug */,
@@ -447,7 +455,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		45BFD049289538110050D064 /* Build configuration list for PBXNativeTarget "Secret Dairy" */ = {
+		45BFD049289538110050D064 /* Build configuration list for PBXNativeTarget "DAYCE" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				45BFD04A289538110050D064 /* Debug */,

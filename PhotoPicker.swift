@@ -66,7 +66,7 @@ struct ImagePicker: UIViewControllerRepresentable {
                         DispatchQueue.main.async {
                             guard let image = newImage as?
                                     UIImage else {return}
-                            let data = image.jpegData(compressionQuality: 0.9)
+                            let data = image.jpegData(compressionQuality: 1.0)
                             self.parent.images.append(data!)
                             print("画像\(self.parent.images.count)枚取得")
                             return

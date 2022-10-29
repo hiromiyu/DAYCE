@@ -33,7 +33,7 @@ struct SheetView: View {
     }
     
     var body: some View {
-        ScrollView {
+        ScrollView(showsIndicators: false) {
         VStack {
             DatePicker("日付",selection:$sampleModel.date, displayedComponents: .date)
                                         .environment(\.locale, Locale(identifier: "ja_JP"))
@@ -52,7 +52,7 @@ struct SheetView: View {
                 Button("追加", action:{
                     sampleModel.writeData(context:context)
                 })
-                .disabled(sampleModel.text.isEmpty || sampleModel.image1.isEmpty)
+                .disabled(sampleModel.text.isEmpty && sampleModel.image1.isEmpty)
             }
             TextEditor(text: $sampleModel.text)
                 .border(Color.gray)

@@ -25,8 +25,8 @@ struct LibraryView: View {
     var body: some View {
 //        VStack {
         NavigationView {
-            ScrollView {
-                LazyVGrid(columns: grids) {
+            ScrollView(showsIndicators: false) {
+                LazyVGrid(columns: grids, spacing: 0) {
                     ForEach(sampleis) { samples in
                         PhotoCardView(samples: samples, sampleModel: sampleModel)
                         //                            NavigationLink {

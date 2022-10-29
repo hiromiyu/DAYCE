@@ -20,15 +20,19 @@ struct ZoomView: View {
     
     var body: some View {
             if samples.image1?.count ?? 0 != 0 {
-                GeometryReader { proxy in
-                    Image(uiImage: UIImage(data: samples.wrappedImg1)!)
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: proxy.size.width, height: proxy.size.height)
-                        .clipShape(Rectangle())
-                        .modifier(ImageModifier(contentSize: CGSize(width: proxy.size.width, height: proxy.size.height)))
-                }
-                .ignoresSafeArea()
+//                GeometryReader { proxy in
+                ZoomableScrollView {
+                        Text(samples.wrappedText)
+                            .frame(width: 350)
+                        Image(uiImage: UIImage(data: samples.wrappedImg1)!)
+                            .resizable()
+                            .scaledToFit()
+                        //                        .frame(width: proxy.size.width, height: proxy.size.height)
+                        //                        .clipShape(Rectangle())
+                        //                        .modifier(ImageModifier(contentSize: CGSize(width: proxy.size.width, height: proxy.size.height)))
+                        //                }
+                        //                .ignoresSafeArea()
+            }
         }
     }
 }
