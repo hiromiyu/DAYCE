@@ -15,13 +15,13 @@ struct SheetView: View {
     @State private var isPicking: Bool = false
     @State private var images: [Data] = []
     @FocusState var focus: Bool
-    @State private var movieUrl: URL?
-    @State private var showPhotoLibraryMoviePickerView = false
-    @State private var showMoviePlayerView = false
+//    @State private var movieUrl: URL?
+//    @State private var showPhotoLibraryMoviePickerView = false
+//    @State private var showMoviePlayerView = false
     
-    private var canPlayVideo: Bool {
-        movieUrl != nil
-    }
+//    private var canPlayVideo: Bool {
+//        movieUrl != nil
+//    }
     
     var pickerConfig: PHPickerConfiguration {
         var config = PHPickerConfiguration(photoLibrary: PHPhotoLibrary.shared())
@@ -49,17 +49,25 @@ struct SheetView: View {
                                        .foregroundColor(.pink)
                                }
                 Spacer()
-                Button("追加", action:{
+                Button("保存", action:{
                     sampleModel.writeData(context:context)
                 })
                 .disabled(sampleModel.text.isEmpty && sampleModel.image1.isEmpty)
             }
-            TextEditor(text: $sampleModel.text)
-                .border(Color.gray)
-                .lineSpacing(5)
-                .padding()
-                .focused(self.$focus)
-                
+            ZStack(alignment: .topLeading) {
+                TextEditor(text: $sampleModel.text)
+//                    .overlay(RoundedRectangle(cornerRadius:5).stroke(Color(uiColor: .placeholderText)))
+                                .lineSpacing(5)
+                    .padding()
+                    .focused(self.$focus)
+                if sampleModel.text.isEmpty {
+                    Text("ここに文字を入力してください。")
+                        .foregroundColor(Color(uiColor: .placeholderText))
+                        .allowsHitTesting(false)
+                        .padding(20)
+                        .padding(.top,5)
+                }
+            }
             HStack {
             Button(action: {
                 self.isPicking.toggle()
@@ -68,7 +76,7 @@ struct SheetView: View {
                     .resizable()
                     .scaledToFit()
                     .frame(width: 30, height: 30)
-                Text("PHOTO")
+                Text("写真")
             }
          /*       Spacer()
                 

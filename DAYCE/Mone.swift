@@ -8,64 +8,45 @@
 import SwiftUI
 
 struct Mone: View {
-//    @SceneStorage("isZooming") var isZooming: Bool = false
     
     @Environment(\.managedObjectContext)
     private var context
     @ObservedObject var samples : SampleData
     @StateObject private var sampleModel = SampleModel()
-    @FetchRequest(
-        entity:SampleData.entity(),
-        sortDescriptors: [NSSortDescriptor(keyPath: \SampleData.date, ascending: false)],
-        animation: .default)
-    private var sampleis: FetchedResults<SampleData>
-//    @Binding var isShowDetail: Bool
     @Environment(\.dismiss) private var dismiss
-
+    
     var body: some View {
         
-        ScrollView (showsIndicators: false) {
-//            LazyVStack {
-//                ForEach(sampleis) { samples in
+            ScrollView (showsIndicators: false) {
                 Text(samples.wrappedText)
                     .frame(width: 350)
                 if samples.image1?.count ?? 0
                     != 0 {
-                        Image(uiImage: UIImage(data: samples.wrappedImg1)!)
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: getRect().width)
-                            .addPinchZoom()
-                            .navigationBarTitleDisplayMode(.inline)
-//                            .edgesIgnoringSafeArea(.all)
-//                            .statusBarHidden()
-                            
+                    Image(uiImage: UIImage(data: samples.wrappedImg1)!)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: getRect().width)
+                        .addPinchZoom()
+                        .navigationBarTitleDisplayMode(.inline)
+                }
             }
-        }
-        .onTapGesture {
-            var transaction = Transaction()
-                transaction.disablesAnimations = true
-                withTransaction(transaction) {
-            dismiss()
-//                isShowDetail = false
-                                        }
-                                    }
-        
-        .navigationBarTitleDisplayMode(.inline)
-        .safeAreaInset(edge: .top) {
-            HStack {
-                Spacer()
+            .onTapGesture {
+                    dismiss()
             }
-            .overlay {
+            
+            .navigationBarTitleDisplayMode(.inline)
+            .safeAreaInset(edge: .top) {
+                HStack {
+                    Spacer()
+                }
+                .overlay {
                     Text(samples.wrappedDate,
                          formatter: itemFormatter)
+                }
+                .padding()
+                .foregroundColor(.primary)
+                .background(.ultraThinMaterial)
             }
-            .padding()
-            .foregroundColor(.primary)
-            .background(.ultraThinMaterial)
-//            .offset(y: isZooming ? -200 : 0)
-//            .animation(.easeInOut, value: isZooming)
-        }
     }
     let itemFormatter: DateFormatter = {
        let formatter = DateFormatter()

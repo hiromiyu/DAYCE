@@ -21,17 +21,13 @@ struct PhotoScrollView: View {
     var body: some View {
         ScrollView (.horizontal) {
             LazyHStack(spacing: 0) {
-//                    TabView {
                     ForEach(sampleis) { samples in
-                        DayView(samples: samples, sampleModel: sampleModel)
-                    }
-//                }
-                .frame(width:UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
-//                  .tabViewStyle(PageTabViewStyle())
-//                  .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .automatic))
+                            DayView(samples: samples, sampleModel: sampleModel)
+//                        PhotoView(samples: samples)
+                                .frame(width:UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
+                }
             }
         }
-            .ignoresSafeArea()
-            .statusBarHidden()
+        .statusBarHidden()
     }
 }

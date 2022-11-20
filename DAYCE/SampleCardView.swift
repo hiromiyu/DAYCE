@@ -51,6 +51,7 @@ struct SampleCardView: View {
                 != 0 {
                 Image(uiImage: UIImage(data: samples.wrappedImg1)!)
                     .resizable()
+                    .aspectRatio(contentMode: .fill)
                     .frame(width: 50, height: 50)
                     .clipShape(Circle())
                     .overlay {
@@ -65,19 +66,6 @@ struct SampleCardView: View {
                     .frame(width: 50, height: 50)
             }
         }
-        
-  /*      .onTapGesture {
-                                var transaction = Transaction()
-                                transaction.disablesAnimations = true
-                                withTransaction(transaction) {
-            isShowDetail = true
-                                }
-        }
-        .fullScreenCover(isPresented: $isShowDetail) {
-            Mone(samples: samples)
-            //            }
-        }
-        */
     }
      let itemFormatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -86,6 +74,7 @@ struct SampleCardView: View {
         formatter.dateStyle = .long
         formatter.timeStyle = .none
         formatter.dateFormat = "yyyy年MM月dd日"
+        formatter.string(from: Date())
         return formatter
     }()
 }
