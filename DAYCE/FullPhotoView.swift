@@ -14,11 +14,9 @@ struct FullPhotoView: View {
     @State private var min: CGFloat = 1.0
     @State private var max: CGFloat = 3.0
     @State var currentScale: CGFloat = 1.0
-//    @State var isShowDetail: Bool
     @Environment(\.dismiss) private var dismiss
-//    @State var opacity: Double = 0
-   
-                   
+    @EnvironmentObject var rotationData: RotationData
+    @State private var rotation: Double = 0.0
 
     var body: some View {
         if samples.image1?.count ?? 0
@@ -27,21 +25,25 @@ struct FullPhotoView: View {
                 Image(uiImage: UIImage(data: samples.wrappedImg1)!)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                //                          .frame(width:UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
+                    .rotation3DEffect(.degrees(rotation), axis: (x: 0, y: 1, z: 0))
             }
-            .navigationBarTitleDisplayMode(.inline)
+            .navigationBarHidden(true)
             .edgesIgnoringSafeArea(.all)
             .statusBarHidden()
             .onTapGesture {
-                var transaction = Transaction()
-                transaction.disablesAnimations = true
-                withTransaction(transaction) {
                 dismiss()
-                    }
+            }
+            
+            if rotationData.isOn {
+                Spacer()
+                HStack {
+                    Text(String(Int(rotation)))
+                        .frame(width: 40)
+                    Slider(value: $rotation, in: 0...360)
+                        .frame(width: 300)
                 }
-            .transaction({ transaction in
-                transaction.disablesAnimations = true
-            })
+                Spacer()
+            }
         }
     }
 }

@@ -14,11 +14,14 @@ struct Mone: View {
     @ObservedObject var samples : SampleData
     @StateObject private var sampleModel = SampleModel()
     @Environment(\.dismiss) private var dismiss
+    @State private var rotation: Double = 0.0
+    @EnvironmentObject var rotationData: RotationData
     
     var body: some View {
         
             ScrollView (showsIndicators: false) {
                 Text(samples.wrappedText)
+                    .font(.headline)
                     .frame(width: 350)
                 if samples.image1?.count ?? 0
                     != 0 {
@@ -28,25 +31,23 @@ struct Mone: View {
                         .frame(width: getRect().width)
                         .addPinchZoom()
                         .navigationBarTitleDisplayMode(.inline)
+                        .rotation3DEffect(.degrees(rotation), axis: (x: 0, y: 1, z: 0))
                 }
             }
             .onTapGesture {
                     dismiss()
             }
-            
             .navigationBarTitleDisplayMode(.inline)
-            .safeAreaInset(edge: .top) {
-                HStack {
-                    Spacer()
-                }
-                .overlay {
-                    Text(samples.wrappedDate,
-                         formatter: itemFormatter)
-                }
-                .padding()
-                .foregroundColor(.primary)
-                .background(.ultraThinMaterial)
+        if rotationData.isOn {
+            Spacer()
+            HStack {
+                Text(String(Int(rotation)))
+                    .frame(width: 40)
+                Slider(value: $rotation, in: 0...360)
+                    .frame(width: 300)
             }
+            Spacer()
+        }
     }
     let itemFormatter: DateFormatter = {
        let formatter = DateFormatter()
@@ -59,8 +60,6 @@ struct Mone: View {
    }()
     
 }
-
-
 
 extension View {
     func addPinchZoom()->some View {

@@ -7,7 +7,8 @@
 
 import SwiftUI
 
-struct DayView: View {
+struct DayView: View{
+    
     @Environment(\.managedObjectContext)
     private var context
     @ObservedObject var samples : SampleData
@@ -17,9 +18,12 @@ struct DayView: View {
     @State var scale: CGFloat = 1.0
     @State var initialScale: CGFloat = 1.0
     @State var tapped = false
-    @State private var rotation = Angle.zero
+    @State private var rotation: Double = 0.0
+
     @Environment(\.dismiss) private var dismiss
     @EnvironmentObject var colorData: ColorData
+    @EnvironmentObject var rotationData: RotationData
+
     let minScale = 0.2
     let maxScale = 5.0
     
@@ -32,12 +36,16 @@ struct DayView: View {
         
                     if samples.image1?.count ?? 0
                         != 0 {
-                        ZoomableScrollView{
-                            Image(uiImage: UIImage(data: samples.wrappedImg1)!)
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .statusBarHidden()
-                        }
+                        VStack {
+                            ZoomableScrollView{
+                                Image(uiImage: UIImage(data: samples.wrappedImg1)!)
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .cornerRadius(10)
+                                    .statusBarHidden()
+                                    .rotation3DEffect(.degrees(rotation), axis: (x: 0, y: 1, z: 0))
+                                
+                            }
                             .overlay(
                                 Text(samples.wrappedText)
                                     .foregroundColor(colorData.colorViews[colorData.selectedColor])
@@ -54,7 +62,19 @@ struct DayView: View {
                                     }
                                     .animation(.spring(), value: scale)
                             )
-                }
+                            
+                            
+                            if rotationData.isOn {
+                                HStack {
+                                    Text(String(Int(rotation)))
+                                        .frame(width: 40)
+                                    Slider(value: $rotation, in: 0...360)
+                                        .frame(width: 300)
+                                }.padding()
+                                Spacer()
+                            }
+                        }
+        }
     }
 }
 

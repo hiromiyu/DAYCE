@@ -17,6 +17,7 @@ extension SampleData {
     }
 
     @NSManaged public var bool: Bool
+    @NSManaged public var bool2: Bool
     @NSManaged public var date: Date?
     @NSManaged public var id: UUID?
     @NSManaged public var image1: Data?

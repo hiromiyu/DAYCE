@@ -14,6 +14,7 @@ class SampleModel :ObservableObject {
     @Published var date = Date()
     @Published var id = UUID()
     @Published var bool = false
+    @Published var bool2 = false
     @Published var image1:Data = Data.init()
     @Published var image2:Data = Data.init()
     @Published var text = ""
@@ -24,6 +25,7 @@ class SampleModel :ObservableObject {
         if updateItem != nil {
             updateItem.date = date
             updateItem.bool = bool
+            updateItem.bool2 = bool2
             updateItem.image1 = image1
             updateItem.image2 = image2
             updateItem.text = text
@@ -34,6 +36,7 @@ class SampleModel :ObservableObject {
             isNewData.toggle()
             date = Date()
             bool = false
+            bool2 = false
             image1 = Data.init()
             image2 = Data.init()
             text = ""
@@ -43,6 +46,7 @@ class SampleModel :ObservableObject {
             newSampleData.date = date
             newSampleData.id = UUID()
             newSampleData.bool = bool
+            newSampleData.bool2 = bool2
             newSampleData.image1 = image1
             newSampleData.image2 = image2
             newSampleData.text = text
@@ -54,6 +58,7 @@ class SampleModel :ObservableObject {
             
             date = Date()
             bool = false
+            bool2 = false
             image1 = Data.init()
             image2 = Data.init()
             text = ""
@@ -68,6 +73,7 @@ class SampleModel :ObservableObject {
         date = item.wrappedDate
         id = item.wrappedId
         bool = item.bool
+        bool2 = item.bool2
         image1 = item.wrappedImg1
         image2 = item.wrappedImg2
         text = item.wrappedText

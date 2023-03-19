@@ -19,15 +19,14 @@ struct PhotoScrollView: View {
     @ObservedObject var samples : SampleData
 
     var body: some View {
-        ScrollView (.horizontal) {
-            LazyHStack(spacing: 0) {
+            ScrollView (.horizontal) {
+                LazyHStack(spacing: 0) {
                     ForEach(sampleis) { samples in
-                            DayView(samples: samples, sampleModel: sampleModel)
-//                        PhotoView(samples: samples)
-                                .frame(width:UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
+                        DayView(samples: samples, sampleModel: sampleModel)
+                            .frame(width:UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
+                    }
                 }
             }
-        }
-        .statusBarHidden()
+            .statusBarHidden()
     }
 }

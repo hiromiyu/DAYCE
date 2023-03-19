@@ -17,22 +17,35 @@ struct ListScrollView: View {
         animation: .default)
     private var sampleis: FetchedResults<SampleData>
     @ObservedObject var samples : SampleData
+    @State private var showFavoritesOnly = false
+    @State private var showNewAlbumOnly = false
+    @EnvironmentObject var albumName: AlbumName
+    
+    var filteredsamples: [SampleData] {
+        sampleis.filter { sample in
+            (!showFavoritesOnly || sample.bool) && (!showNewAlbumOnly || sample.bool2)
+        }
+    }
     
     var body: some View {
-        ScrollView {
-            LazyVStack {
-                ForEach(sampleis) { item in
-                    //                        Mone(samples: item, isShowDetail: $isShowDetail) }
+            ScrollView {
+                Toggle(isOn: $showFavoritesOnly.animation(.spring())) {
+                        Text("お気に入り")
+                            .font(.headline)
+                }.padding([.top, .leading, .trailing], 20.0)
+                    .disabled(showNewAlbumOnly)
+                Toggle(isOn: $showNewAlbumOnly.animation(.spring())) {
+                    Text("\(albumName.name)")
+                            .font(.headline)
+                }.padding([.top, .leading, .trailing], 20.0)
+                    .disabled(showFavoritesOnly)
+                
+                LazyVStack {
+                    ForEach(filteredsamples) { item in
                         PhotoView(samples: item)
-                }
-                //                        .scaledToFit()
-                //                        .frame(width: .infinity, height: .infinity)
-                //                        .frame(width:UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
-                //                    .tabViewStyle(PageTabViewStyle())
-                //                    .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .never))
-            
+                    }
+                }                
             }
-        }
-        .statusBarHidden()
+            .statusBarHidden()
     }
 }

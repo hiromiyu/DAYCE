@@ -18,6 +18,7 @@ struct PersistenceController {
         newSampleData.date = Date()
         newSampleData.text = ""
         newSampleData.bool = false
+        newSampleData.bool2 = false
         newSampleData.image1 = Data.init()
         newSampleData.image2 = Data.init()
         

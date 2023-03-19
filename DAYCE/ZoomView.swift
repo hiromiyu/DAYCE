@@ -10,49 +10,147 @@ import SwiftUI
 struct ZoomView: View {
     @Environment(\.managedObjectContext)
     private var context
+    @EnvironmentObject var colorData: ColorData
+    @EnvironmentObject var speechbubbleData: SpeechbubbleData
+    @Environment(\.colorScheme) var colorScheme: ColorScheme
     @ObservedObject var samples : SampleData
-    @StateObject private var sampleModel = SampleModel()
-    @Environment(\.dismiss) private var dismiss
-    
+    @State var offset: CGSize = .zero
+    @State var initialOffset: CGSize = .zero
+    @State var scale: CGFloat = 1.0
+    @State var initialScale: CGFloat = 1.0
+        
     var body: some View {
-        ScrollView {
-            Text(samples.wrappedText)
-                .font(.title)
-                .frame(width: 350)
-            if samples.image1?.count ?? 0 != 0 {
-                Image(uiImage: UIImage(data: samples.wrappedImg1)!)
-                    .resizable()
-                    .scaledToFit()
+        let dragGesture = DragGesture()
+            .onChanged { offset = CGSize(width: initialOffset.width + $0.translation.width,
+                                         height: initialOffset.height + $0.translation.height)
             }
-        }
-        .onTapGesture {
-            var transaction = Transaction()
-                transaction.disablesAnimations = true
-                withTransaction(transaction) {
-            dismiss()
-                                        }
-                                    }
-        .navigationBarTitleDisplayMode(.inline)
-        .safeAreaInset(edge: .top) {
-            HStack {
-                Spacer()
+            .onEnded { _ in initialOffset = offset }
+        
+        if samples.image1?.count ?? 0 != 0 {
+            if speechbubbleData.isOn && samples.wrappedText.count > 0 {
+                ZoomableScrollView {
+                    Image(uiImage: UIImage(data: samples.wrappedImg1)!)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .cornerRadius(10)
+                }
+                .edgesIgnoringSafeArea(.all)
+                .overlay(
+                    BalloonText(samples.wrappedText)
+                        .foregroundColor(.black)
+                        .font(.largeTitle)
+                        .scaleEffect(scale)
+                        .offset(offset)
+                        .gesture(dragGesture)
+                        .onTapGesture {
+                            if scale > 1.0 {
+                                scale = 1.0
+                            } else {
+                                scale = 2.0
+                            }
+                        }
+                        .animation(.spring(), value: scale)
+                )
+            } else if speechbubbleData.positionlefttop && samples.wrappedText.count > 0 {
+                ZoomableScrollView {
+                    Image(uiImage: UIImage(data: samples.wrappedImg1)!)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .cornerRadius(10)
+                }
+                .edgesIgnoringSafeArea(.all)
+                .overlay(
+                    BalloonText(samples.wrappedText, mirrored: true)
+                        .foregroundColor(.black)
+                        .font(.largeTitle)
+                        .scaleEffect(scale)
+                        .offset(offset)
+                        .gesture(dragGesture)
+                        .onTapGesture {
+                            if scale > 1.0 {
+                                scale = 1.0
+                            } else {
+                                scale = 2.0
+                            }
+                        }
+                        .animation(.spring(), value: scale)
+                )
+            } else if speechbubbleData.positionleftunder && samples.wrappedText.count > 0 {
+                ZoomableScrollView {
+                    Image(uiImage: UIImage(data: samples.wrappedImg1)!)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .cornerRadius(10)
+                }
+                .edgesIgnoringSafeArea(.all)
+                .overlay(
+                    BalloonText(samples.wrappedText, mirrored: true)
+                        .foregroundColor(.black)
+                        .font(.largeTitle)
+                        .scaleEffect(scale)
+                        .offset(offset)
+                        .gesture(dragGesture)
+                        .onTapGesture {
+                            if scale > 1.0 {
+                                scale = 1.0
+                            } else {
+                                scale = 2.0
+                            }
+                        }
+                        .animation(.spring(), value: scale)
+                )
+            } else if speechbubbleData.positionrightunder && samples.wrappedText.count > 0 {
+                ZoomableScrollView {
+                    Image(uiImage: UIImage(data: samples.wrappedImg1)!)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .cornerRadius(10)
+                }
+                .edgesIgnoringSafeArea(.all)
+                .overlay(
+                    BalloonText(samples.wrappedText)
+                        .foregroundColor(.black)
+                        .font(.largeTitle)
+                        .scaleEffect(scale)
+                        .offset(offset)
+                        .gesture(dragGesture)
+                        .onTapGesture {
+                            if scale > 1.0 {
+                                scale = 1.0
+                            } else {
+                                scale = 2.0
+                            }
+                        }
+                        .animation(.spring(), value: scale)
+                )
+            } else {
+                ZoomableScrollView {
+                    Image(uiImage: UIImage(data: samples.wrappedImg1)!)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .cornerRadius(10)
+                }
+                .edgesIgnoringSafeArea(.all)
+                .overlay(
+                    Text(samples.wrappedText)
+                        .foregroundColor(colorScheme == .light ? colorData.colorViews[colorData.selectedColor] : colorData.darkcolorViews[colorData.selectedColor])
+                        .font(.largeTitle)
+                        .scaleEffect(scale)
+                        .offset(offset)
+                        .gesture(dragGesture)
+                        .onLongPressGesture(perform: {
+                            scale = 0
+                        })
+                        .onTapGesture {
+                            if scale > 1.0 {
+                                scale = 1.0
+                            } else {
+                                scale = 2.0
+                            }
+                        }
+                        .animation(.spring(), value: scale)
+                )
             }
-            .overlay {
-                Text(samples.wrappedDate,
-                     formatter: itemFormatter)
-            }
-            .padding()
-            .foregroundColor(.primary)
-            .background(.ultraThinMaterial)
         }
     }
-    let itemFormatter: DateFormatter = {
-       let formatter = DateFormatter()
-       formatter.calendar = Calendar(identifier: .gregorian)
-       formatter.locale = Locale(identifier: "ja_JP")
-       formatter.dateStyle = .long
-       formatter.timeStyle = .none
-       formatter.dateFormat = "yyyy年MM月dd日"
-       return formatter
-   }()
 }

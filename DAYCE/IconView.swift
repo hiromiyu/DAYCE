@@ -13,8 +13,6 @@ struct IconView: View {
             ZStack() {
                 Rectangle()
                     .foregroundColor(.purple)
-                //                .rotationEffect(.degrees(45))
-                //                .position(x: 300 ,y: 550)
                 ZStack() {
                     Image(systemName: "magazine")
                         .resizable()

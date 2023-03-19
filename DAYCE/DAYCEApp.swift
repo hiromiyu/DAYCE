@@ -16,6 +16,9 @@ struct DAYCEApp: App {
             MainView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
                 .environmentObject(ColorData())
+                .environmentObject(RotationData())
+                .environmentObject(AlbumName())
+                .environmentObject(SpeechbubbleData())
         }
     }
 }

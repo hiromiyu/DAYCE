@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 
 class ColorData: ObservableObject {
-    @Published var colorViews: [Color] = [.white, .black, .red, .green, .blue, .yellow, .pink, .purple, .orange, .brown]
+    @Published var colorViews: [Color] = [.black, .purple, .red, .green, .blue, .yellow, .pink, .orange, .brown]
+    @Published var darkcolorViews: [Color] = [.white, .purple, .red, .green, .blue, .yellow, .pink, .orange, .brown]
     @Published var selectedColor: Int = 0
 }

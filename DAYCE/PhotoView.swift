@@ -16,21 +16,16 @@ struct PhotoView: View {
     @State var scale: CGFloat = 1.0
     @State var initialScale: CGFloat = 1.0
     @State var tapped = false
-    @State private var rotation = Angle.zero
+    @State private var rotation: Double = 0.0
+
     @Environment(\.dismiss) private var dismiss
     @EnvironmentObject var colorData: ColorData
+    @EnvironmentObject var rotationData: RotationData
+    @EnvironmentObject var speechbubbleData: SpeechbubbleData
+    @Environment(\.colorScheme) var colorScheme: ColorScheme
+
     let minScale = 0.2
     let maxScale = 5.0
-    
-    var rotationGesture: some Gesture {
-        RotationGesture()
-            .onChanged { angle in
-                rotation = angle
-            }
-            .onEnded { angle in
-                rotation = angle
-            }
-    }
     
     var body: some View {
         let dragGesture = DragGesture()
@@ -41,56 +36,235 @@ struct PhotoView: View {
         
             if samples.image1?.count ?? 0
                 != 0 {
+                if speechbubbleData.isOn && samples.wrappedText.count > 0 {
                     Image(uiImage: UIImage(data: samples.wrappedImg1)!)
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .addPinchZoom()
-                .overlay(
-                    Text(samples.wrappedText)
-                        .foregroundColor(colorData.colorViews[colorData.selectedColor])
-                        .font(.largeTitle)
-                        .scaleEffect(scale)
-                        .offset(offset)
-                        .gesture(dragGesture)
+                        .rotation3DEffect(.degrees(rotation), axis: (x: 0, y: 1, z: 0))
+                        .overlay(
+                            BalloonText(samples.wrappedText)
+                                .foregroundColor(.black)
+                                .font(.largeTitle)
+                                .scaleEffect(scale)
+                                .offset(offset)
+                                .gesture(dragGesture)
+                                .onTapGesture {
+                                    if scale > 1.0 {
+                                        scale = 1.0
+                                    } else {
+                                        scale = 2.0
+                                    }
+                                }
+                                .animation(.spring(), value: scale)
+                        )
                         .onTapGesture {
-                            if scale > 1.0 {
-                                scale = 1.0
-                            } else {
-                                scale = 2.0
+                            var transaction = Transaction()
+                            transaction.disablesAnimations = true
+                            withTransaction(transaction) {
+                                dismiss()
                             }
                         }
-                        .animation(.spring(), value: scale)
-                )
-                .onTapGesture {
-                    var transaction = Transaction()
-                    transaction.disablesAnimations = true
-                    withTransaction(transaction) {
-                        dismiss()
-                    }
+                        .navigationBarTitleDisplayMode(.inline)
+                        .safeAreaInset(edge: .top) {
+                            HStack {
+                                Spacer()
+                            }
+                            .overlay {
+                                Text(samples.wrappedDate,
+                                     formatter: itemFormatter)
+                                .font(.headline)
+                            }
+                            .padding()
+                            .foregroundColor(.primary)
+                            .background(.ultraThinMaterial)
+                        }
+                } else if speechbubbleData.positionlefttop && samples.wrappedText.count > 0 {
+                    Image(uiImage: UIImage(data: samples.wrappedImg1)!)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .addPinchZoom()
+                        .rotation3DEffect(.degrees(rotation), axis: (x: 0, y: 1, z: 0))
+                        .overlay(
+                            BalloonText(samples.wrappedText, mirrored: true)
+                                .foregroundColor(.black)
+                                .font(.largeTitle)
+                                .scaleEffect(scale)
+                                .offset(offset)
+                                .gesture(dragGesture)
+                                .onTapGesture {
+                                    if scale > 1.0 {
+                                        scale = 1.0
+                                    } else {
+                                        scale = 2.0
+                                    }
+                                }
+                                .animation(.spring(), value: scale)
+                        )
+                        .onTapGesture {
+                            var transaction = Transaction()
+                            transaction.disablesAnimations = true
+                            withTransaction(transaction) {
+                                dismiss()
+                            }
+                        }
+                        .navigationBarTitleDisplayMode(.inline)
+                        .safeAreaInset(edge: .top) {
+                            HStack {
+                                Spacer()
+                            }
+                            .overlay {
+                                Text(samples.wrappedDate,
+                                     formatter: itemFormatter)
+                                .font(.headline)
+                            }
+                            .padding()
+                            .foregroundColor(.primary)
+                            .background(.ultraThinMaterial)
+                        }
+                } else if speechbubbleData.positionleftunder && samples.wrappedText.count > 0 {
+                    Image(uiImage: UIImage(data: samples.wrappedImg1)!)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .addPinchZoom()
+                        .rotation3DEffect(.degrees(rotation), axis: (x: 0, y: 1, z: 0))
+                        .overlay(
+                            BalloonText(samples.wrappedText, mirrored: true)
+                                .foregroundColor(.black)
+                                .font(.largeTitle)
+                                .scaleEffect(scale)
+                                .offset(offset)
+                                .gesture(dragGesture)
+                                .onTapGesture {
+                                    if scale > 1.0 {
+                                        scale = 1.0
+                                    } else {
+                                        scale = 2.0
+                                    }
+                                }
+                                .animation(.spring(), value: scale)
+                        )
+                        .onTapGesture {
+                            var transaction = Transaction()
+                            transaction.disablesAnimations = true
+                            withTransaction(transaction) {
+                                dismiss()
+                            }
+                        }
+                        .navigationBarTitleDisplayMode(.inline)
+                        .safeAreaInset(edge: .top) {
+                            HStack {
+                                Spacer()
+                            }
+                            .overlay {
+                                Text(samples.wrappedDate,
+                                     formatter: itemFormatter)
+                                .font(.headline)
+                            }
+                            .padding()
+                            .foregroundColor(.primary)
+                            .background(.ultraThinMaterial)
+                        }
+                } else if speechbubbleData.positionrightunder && samples.wrappedText.count > 0 {
+                    Image(uiImage: UIImage(data: samples.wrappedImg1)!)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .addPinchZoom()
+                        .rotation3DEffect(.degrees(rotation), axis: (x: 0, y: 1, z: 0))
+                        .overlay(
+                            BalloonText(samples.wrappedText)
+                                .foregroundColor(.black)
+                                .font(.largeTitle)
+                                .scaleEffect(scale)
+                                .offset(offset)
+                                .gesture(dragGesture)
+                                .onTapGesture {
+                                    if scale > 1.0 {
+                                        scale = 1.0
+                                    } else {
+                                        scale = 2.0
+                                    }
+                                }
+                                .animation(.spring(), value: scale)
+                        )
+                        .onTapGesture {
+                            var transaction = Transaction()
+                            transaction.disablesAnimations = true
+                            withTransaction(transaction) {
+                                dismiss()
+                            }
+                        }
+                        .navigationBarTitleDisplayMode(.inline)
+                        .safeAreaInset(edge: .top) {
+                            HStack {
+                                Spacer()
+                            }
+                            .overlay {
+                                Text(samples.wrappedDate,
+                                     formatter: itemFormatter)
+                                .font(.headline)
+                            }
+                            .padding()
+                            .foregroundColor(.primary)
+                            .background(.ultraThinMaterial)
+                        }
+                } else {
+                    Image(uiImage: UIImage(data: samples.wrappedImg1)!)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .addPinchZoom()
+                        .rotation3DEffect(.degrees(rotation), axis: (x: 0, y: 1, z: 0))
+                    
+                        .overlay(
+                            Text(samples.wrappedText)
+                                .foregroundColor(colorScheme == .light ? colorData.colorViews[colorData.selectedColor] : colorData.darkcolorViews[colorData.selectedColor])
+                                .font(.largeTitle)
+                                .scaleEffect(scale)
+                                .offset(offset)
+                                .gesture(dragGesture)
+                                .onTapGesture {
+                                    if scale > 1.0 {
+                                        scale = 1.0
+                                    } else {
+                                        scale = 2.0
+                                    }
+                                }
+                                .animation(.spring(), value: scale)
+                        )
+                        .onTapGesture {
+                            var transaction = Transaction()
+                            transaction.disablesAnimations = true
+                            withTransaction(transaction) {
+                                dismiss()
+                            }
+                        }
+                        .navigationBarTitleDisplayMode(.inline)
+                        .safeAreaInset(edge: .top) {
+                            HStack {
+                                Spacer()
+                            }
+                            .overlay {
+                                Text(samples.wrappedDate,
+                                     formatter: itemFormatter)
+                                .font(.headline)
+                            }
+                            .padding()
+                            .foregroundColor(.primary)
+                            .background(.ultraThinMaterial)
+                        }
                 }
-                .navigationBarTitleDisplayMode(.inline)
-                .safeAreaInset(edge: .top) {
+        
+                if rotationData.isOn {
+                    Spacer()
                     HStack {
-                        Spacer()
+                        Text(String(Int(rotation)))
+                            .frame(width: 40)
+                        Slider(value: $rotation, in: 0...360)
+                            .frame(width: 300)
                     }
-                    .overlay {
-                        Text(samples.wrappedDate,
-                             formatter: itemFormatter)
-                    }
-                    .padding()
-                    .foregroundColor(.primary)
-                    .background(.ultraThinMaterial)
+                    Spacer()
                 }
-            }
-            if samples.image2?.count ?? 0
-                != 0 {
-                Image(uiImage: UIImage(data: samples.wrappedImg2)!)
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .offset(offset)
-                    .scaleEffect(scale)
-                    .navigationBarTitleDisplayMode(.inline)
-            }
+        }
         }
         let itemFormatter: DateFormatter = {
             let formatter = DateFormatter()

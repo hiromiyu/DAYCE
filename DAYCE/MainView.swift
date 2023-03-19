@@ -9,13 +9,15 @@ import SwiftUI
 
 struct MainView: View {
     @Environment(\.managedObjectContext) private var viewContext
+    @EnvironmentObject var colorData: ColorData
+    @Environment(\.colorScheme) var colorScheme: ColorScheme
     @StateObject private var sampleModel = SampleModel()
 
-    @FetchRequest(
-        entity:SampleData.entity(),
-        sortDescriptors: [NSSortDescriptor(keyPath: \SampleData.date, ascending: false)],
-        animation: .default)
-    private var samples: FetchedResults<SampleData>
+//    @FetchRequest(
+//        entity:SampleData.entity(),
+//        sortDescriptors: [NSSortDescriptor(keyPath: \SampleData.date, ascending: false)],
+//        animation: .default)
+//    private var samples: FetchedResults<SampleData>
     
     @State private var selectedTag = 1
     
@@ -24,33 +26,29 @@ struct MainView: View {
                 ContentView(samples: SampleData())
                     .tabItem {
                         Image(systemName: "list.bullet")
-//                        Text("リスト")
                     }.tag(1)
+                
+                FolderView(samples: SampleData())
+                    .tabItem {
+                        Image(systemName: "doc.text.image")
+                    }.tag(2)
                 
                 ListScrollView(samples: SampleData())
                     .tabItem {
-                        Image(systemName: "scroll")
-//                        Text("日記")
-                    }.tag(2)
-                
-                LibraryView(samples: SampleData())
-                    .tabItem {
-                        Image(systemName: "photo.on.rectangle")
-//                        Text("写真一覧")
+                        Image(systemName: "scroll.fill")
                     }.tag(3)
                 
-                PhotoScrollView(samples: SampleData())
+                AlbumView(samples: SampleData(), sampleModel: SampleModel())
                     .tabItem {
-                        Image(systemName: "scroll.fill")
-//                        Text("写真")
+                        Image(systemName: "book.fill")
                     }.tag(4)
                 
                 SettingView()
                     .tabItem {
                         Image(systemName: "gearshape")
-//                        Text("設定")
                     }.tag(5)
-        }
+            }
+            .accentColor(colorScheme == .light ? colorData.colorViews[colorData.selectedColor] : colorData.darkcolorViews[colorData.selectedColor])
     }
 }
 
@@ -60,5 +58,8 @@ struct MainView_Previews: PreviewProvider {
             .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
             .previewInterfaceOrientation(.portrait)
             .environmentObject(ColorData())
+            .environmentObject(RotationData())
+            .environmentObject(AlbumName())
+            .environmentObject(SpeechbubbleData())
     }
 }

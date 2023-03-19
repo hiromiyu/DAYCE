@@ -31,7 +31,6 @@ struct SampleCardView: View {
                 }){
                     Text("編集")
                     Image(systemName: "square.and.pencil")
-                        .foregroundColor(Color.blue)
                 }
                 Button(role: .destructive, action: {
                     context.delete(samples)
@@ -43,9 +42,13 @@ struct SampleCardView: View {
                 }
             }
             if samples.bool {
-                          Image(systemName: "heart.fill")
-                               .foregroundColor(.pink)
-                           }
+                Image(systemName: "heart.fill")
+                    .foregroundColor(.pink)
+            }
+            if samples.bool2 {
+                Image(systemName: "star.fill")
+                    .foregroundColor(.yellow)
+            }
             Spacer()
             if samples.image1?.count ?? 0
                 != 0 {
@@ -67,7 +70,7 @@ struct SampleCardView: View {
             }
         }
     }
-     let itemFormatter: DateFormatter = {
+    let itemFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.calendar = Calendar(identifier: .gregorian)
         formatter.locale = Locale(identifier: "ja_JP")
@@ -77,11 +80,4 @@ struct SampleCardView: View {
         formatter.string(from: Date())
         return formatter
     }()
-}
-
-struct SampleCardView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView(samples: SampleData())
-            .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
-    }
 }

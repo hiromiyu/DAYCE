@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		450C535629631F5000787D77 /* FolderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450C535529631F5000787D77 /* FolderView.swift */; };
+		450C5358296322AA00787D77 /* FolderCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450C5357296322AA00787D77 /* FolderCardView.swift */; };
 		45120D7F28B1D15F009AF074 /* DayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45120D7E28B1D15F009AF074 /* DayView.swift */; };
 		45150CEA28E96F7800147ADF /* ListScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45150CE928E96F7800147ADF /* ListScrollView.swift */; };
 		45150CEC28E96F9600147ADF /* PhotoScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45150CEB28E96F9600147ADF /* PhotoScrollView.swift */; };
@@ -14,12 +16,25 @@
 		45240891289A97C90027AF59 /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45240890289A97C90027AF59 /* LibraryView.swift */; };
 		45240893289A98700027AF59 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45240892289A98700027AF59 /* SettingView.swift */; };
 		45240895289AA4420027AF59 /* PhotoCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45240894289AA4420027AF59 /* PhotoCardView.swift */; };
+		4524F0E52951F19100C8951D /* ScrollTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4524F0E42951F19100C8951D /* ScrollTabView.swift */; };
+		452D14DA297CFA1F003E793E /* FavoritesPager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452D14D9297CFA1F003E793E /* FavoritesPager.swift */; };
+		452D14DC297CFCD2003E793E /* NewAlbumPager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452D14DB297CFCD2003E793E /* NewAlbumPager.swift */; };
+		452D398D2972767100E9DAE5 /* AlbumName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452D398C2972767100E9DAE5 /* AlbumName.swift */; };
 		4531AF8528AB81B8003F57F8 /* IconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4531AF8428AB81B8003F57F8 /* IconView.swift */; };
+		453A07CA2978228100E02CAC /* AlbumCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453A07C92978228100E02CAC /* AlbumCardView.swift */; };
+		453FF8B72934F4AB00AF615E /* RotationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453FF8B62934F4AB00AF615E /* RotationData.swift */; };
+		454A336429656D6C0013418D /* AlbumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454A336329656D6C0013418D /* AlbumView.swift */; };
+		454B86882971A5A300F4484B /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454B86872971A5A300F4484B /* FavoritesView.swift */; };
 		45978E982898F1E600025136 /* PhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45978E972898F1E600025136 /* PhotoView.swift */; };
 		45A2DFE0290D008300E2D94E /* PrivacyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A2DFDF290D008300E2D94E /* PrivacyView.swift */; };
 		45A2DFE2290D029300E2D94E /* Terms Of ServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A2DFE1290D029300E2D94E /* Terms Of ServiceView.swift */; };
 		45A2F5A728D723DE00EFA830 /* ImageModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A2F5A628D723DE00EFA830 /* ImageModifier.swift */; };
 		45A2F5A928D725E800EFA830 /* ZoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A2F5A828D725E800EFA830 /* ZoomView.swift */; };
+		45A684A729C69C52006F25B7 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A684A629C69C52006F25B7 /* GradientView.swift */; };
+		45B203BC297ABC4E00196FA6 /* SwipeReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B203BB297ABC4E00196FA6 /* SwipeReader.swift */; };
+		45B569AA29B4510F008D2DD7 /* SpeechbubbleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B569A929B4510F008D2DD7 /* SpeechbubbleData.swift */; };
+		45B6269929B42BA1007EA905 /* Speech bubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B6269829B42BA1007EA905 /* Speech bubble.swift */; };
+		45B857A62973DEB80090E648 /* NewAlbumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B857A52973DEB80090E648 /* NewAlbumView.swift */; };
 		45BFD03A289538100050D064 /* DAYCEApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BFD039289538100050D064 /* DAYCEApp.swift */; };
 		45BFD03C289538100050D064 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BFD03B289538100050D064 /* ContentView.swift */; };
 		45BFD03E289538110050D064 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45BFD03D289538110050D064 /* Assets.xcassets */; };
@@ -35,10 +50,13 @@
 		45D8C80728F165AC00E66C22 /* FullPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D8C80628F165AC00E66C22 /* FullPhotoView.swift */; };
 		45D905E428E884B100909107 /* ZoomableScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D905E328E884B100909107 /* ZoomableScrollView.swift */; };
 		45DB5C8529141CCC00514C1B /* ColorData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DB5C8429141CCC00514C1B /* ColorData.swift */; };
+		45EDDC2D294A04AA00957C6C /* ImagePager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EDDC2C294A04AA00957C6C /* ImagePager.swift */; };
 		45F998F328D61A8C00A829F1 /* Mone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F998F228D61A8C00A829F1 /* Mone.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		450C535529631F5000787D77 /* FolderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderView.swift; sourceTree = "<group>"; };
+		450C5357296322AA00787D77 /* FolderCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderCardView.swift; sourceTree = "<group>"; };
 		45120D7E28B1D15F009AF074 /* DayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayView.swift; sourceTree = "<group>"; };
 		45150CE928E96F7800147ADF /* ListScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListScrollView.swift; sourceTree = "<group>"; };
 		45150CEB28E96F9600147ADF /* PhotoScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoScrollView.swift; sourceTree = "<group>"; };
@@ -46,12 +64,25 @@
 		45240890289A97C90027AF59 /* LibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryView.swift; sourceTree = "<group>"; };
 		45240892289A98700027AF59 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		45240894289AA4420027AF59 /* PhotoCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCardView.swift; sourceTree = "<group>"; };
+		4524F0E42951F19100C8951D /* ScrollTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollTabView.swift; sourceTree = "<group>"; };
+		452D14D9297CFA1F003E793E /* FavoritesPager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesPager.swift; sourceTree = "<group>"; };
+		452D14DB297CFCD2003E793E /* NewAlbumPager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAlbumPager.swift; sourceTree = "<group>"; };
+		452D398C2972767100E9DAE5 /* AlbumName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumName.swift; sourceTree = "<group>"; };
 		4531AF8428AB81B8003F57F8 /* IconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconView.swift; sourceTree = "<group>"; };
+		453A07C92978228100E02CAC /* AlbumCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumCardView.swift; sourceTree = "<group>"; };
+		453FF8B62934F4AB00AF615E /* RotationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotationData.swift; sourceTree = "<group>"; };
+		454A336329656D6C0013418D /* AlbumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumView.swift; sourceTree = "<group>"; };
+		454B86872971A5A300F4484B /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		45978E972898F1E600025136 /* PhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoView.swift; sourceTree = "<group>"; };
 		45A2DFDF290D008300E2D94E /* PrivacyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyView.swift; sourceTree = "<group>"; };
 		45A2DFE1290D029300E2D94E /* Terms Of ServiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Terms Of ServiceView.swift"; sourceTree = "<group>"; };
 		45A2F5A628D723DE00EFA830 /* ImageModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModifier.swift; sourceTree = "<group>"; };
 		45A2F5A828D725E800EFA830 /* ZoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomView.swift; sourceTree = "<group>"; };
+		45A684A629C69C52006F25B7 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		45B203BB297ABC4E00196FA6 /* SwipeReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeReader.swift; sourceTree = "<group>"; };
+		45B569A929B4510F008D2DD7 /* SpeechbubbleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechbubbleData.swift; sourceTree = "<group>"; };
+		45B6269829B42BA1007EA905 /* Speech bubble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Speech bubble.swift"; sourceTree = "<group>"; };
+		45B857A52973DEB80090E648 /* NewAlbumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAlbumView.swift; sourceTree = "<group>"; };
 		45BFD036289538100050D064 /* DAYCE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DAYCE.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45BFD039289538100050D064 /* DAYCEApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DAYCEApp.swift; sourceTree = "<group>"; };
 		45BFD03B289538100050D064 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -68,6 +99,7 @@
 		45D8C80628F165AC00E66C22 /* FullPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullPhotoView.swift; sourceTree = "<group>"; };
 		45D905E328E884B100909107 /* ZoomableScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomableScrollView.swift; sourceTree = "<group>"; };
 		45DB5C8429141CCC00514C1B /* ColorData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorData.swift; sourceTree = "<group>"; };
+		45EDDC2C294A04AA00957C6C /* ImagePager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePager.swift; sourceTree = "<group>"; };
 		45F998F228D61A8C00A829F1 /* Mone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mone.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -86,10 +118,14 @@
 			isa = PBXGroup;
 			children = (
 				45DB5C8429141CCC00514C1B /* ColorData.swift */,
+				453FF8B62934F4AB00AF615E /* RotationData.swift */,
+				45B569A929B4510F008D2DD7 /* SpeechbubbleData.swift */,
+				452D398C2972767100E9DAE5 /* AlbumName.swift */,
 				45BFD04C28953B320050D064 /* SampleData+CoreDataClass.swift */,
 				45BFD04D28953B320050D064 /* SampleData+CoreDataProperties.swift */,
 				45BFD05028953BDC0050D064 /* SampleModel.swift */,
 				45BFD05228953C1E0050D064 /* PhotoPicker.swift */,
+				45B203BB297ABC4E00196FA6 /* SwipeReader.swift */,
 				45BFD05428953CE70050D064 /* SheetView.swift */,
 				45BFD038289538100050D064 /* DAYCE */,
 				45BFD037289538100050D064 /* Products */,
@@ -109,19 +145,31 @@
 			children = (
 				45BFD039289538100050D064 /* DAYCEApp.swift */,
 				4524088E289A954D0027AF59 /* MainView.swift */,
+				45A684A629C69C52006F25B7 /* GradientView.swift */,
+				45EDDC2C294A04AA00957C6C /* ImagePager.swift */,
+				452D14D9297CFA1F003E793E /* FavoritesPager.swift */,
+				452D14DB297CFCD2003E793E /* NewAlbumPager.swift */,
+				454A336329656D6C0013418D /* AlbumView.swift */,
 				45150CE928E96F7800147ADF /* ListScrollView.swift */,
 				45150CEB28E96F9600147ADF /* PhotoScrollView.swift */,
 				45BFD03B289538100050D064 /* ContentView.swift */,
 				45F998F228D61A8C00A829F1 /* Mone.swift */,
 				45240890289A97C90027AF59 /* LibraryView.swift */,
+				454B86872971A5A300F4484B /* FavoritesView.swift */,
+				45B857A52973DEB80090E648 /* NewAlbumView.swift */,
+				450C535529631F5000787D77 /* FolderView.swift */,
 				45A2F5A828D725E800EFA830 /* ZoomView.swift */,
 				45A2F5A628D723DE00EFA830 /* ImageModifier.swift */,
+				45B6269829B42BA1007EA905 /* Speech bubble.swift */,
 				45240892289A98700027AF59 /* SettingView.swift */,
 				45A2DFDF290D008300E2D94E /* PrivacyView.swift */,
 				45A2DFE1290D029300E2D94E /* Terms Of ServiceView.swift */,
 				4531AF8428AB81B8003F57F8 /* IconView.swift */,
 				45BFD05628953E090050D064 /* SampleCardView.swift */,
 				45240894289AA4420027AF59 /* PhotoCardView.swift */,
+				450C5357296322AA00787D77 /* FolderCardView.swift */,
+				453A07C92978228100E02CAC /* AlbumCardView.swift */,
+				4524F0E42951F19100C8951D /* ScrollTabView.swift */,
 				45978E972898F1E600025136 /* PhotoView.swift */,
 				45D905E328E884B100909107 /* ZoomableScrollView.swift */,
 				45120D7E28B1D15F009AF074 /* DayView.swift */,
@@ -212,6 +260,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				454A336429656D6C0013418D /* AlbumView.swift in Sources */,
+				450C5358296322AA00787D77 /* FolderCardView.swift in Sources */,
 				45A2DFE2290D029300E2D94E /* Terms Of ServiceView.swift in Sources */,
 				45F998F328D61A8C00A829F1 /* Mone.swift in Sources */,
 				45A2F5A928D725E800EFA830 /* ZoomView.swift in Sources */,
@@ -220,24 +270,38 @@
 				45A2DFE0290D008300E2D94E /* PrivacyView.swift in Sources */,
 				4524088F289A954D0027AF59 /* MainView.swift in Sources */,
 				45BFD05528953CE70050D064 /* SheetView.swift in Sources */,
+				452D14DA297CFA1F003E793E /* FavoritesPager.swift in Sources */,
+				45B569AA29B4510F008D2DD7 /* SpeechbubbleData.swift in Sources */,
 				45240893289A98700027AF59 /* SettingView.swift in Sources */,
 				45BFD03C289538100050D064 /* ContentView.swift in Sources */,
 				45D8C80728F165AC00E66C22 /* FullPhotoView.swift in Sources */,
 				45BFD03A289538100050D064 /* DAYCEApp.swift in Sources */,
+				452D398D2972767100E9DAE5 /* AlbumName.swift in Sources */,
 				45240891289A97C90027AF59 /* LibraryView.swift in Sources */,
+				450C535629631F5000787D77 /* FolderView.swift in Sources */,
 				45BFD04F28953B320050D064 /* SampleData+CoreDataProperties.swift in Sources */,
+				45B6269929B42BA1007EA905 /* Speech bubble.swift in Sources */,
 				45978E982898F1E600025136 /* PhotoView.swift in Sources */,
+				45B203BC297ABC4E00196FA6 /* SwipeReader.swift in Sources */,
+				453FF8B72934F4AB00AF615E /* RotationData.swift in Sources */,
+				45EDDC2D294A04AA00957C6C /* ImagePager.swift in Sources */,
 				45BFD05328953C1E0050D064 /* PhotoPicker.swift in Sources */,
 				45DB5C8529141CCC00514C1B /* ColorData.swift in Sources */,
+				4524F0E52951F19100C8951D /* ScrollTabView.swift in Sources */,
 				45150CEC28E96F9600147ADF /* PhotoScrollView.swift in Sources */,
 				45BFD05728953E090050D064 /* SampleCardView.swift in Sources */,
 				4531AF8528AB81B8003F57F8 /* IconView.swift in Sources */,
+				45B857A62973DEB80090E648 /* NewAlbumView.swift in Sources */,
 				45BFD04E28953B320050D064 /* SampleData+CoreDataClass.swift in Sources */,
+				453A07CA2978228100E02CAC /* AlbumCardView.swift in Sources */,
+				452D14DC297CFCD2003E793E /* NewAlbumPager.swift in Sources */,
 				45D905E428E884B100909107 /* ZoomableScrollView.swift in Sources */,
 				45240895289AA4420027AF59 /* PhotoCardView.swift in Sources */,
 				45BFD05128953BDC0050D064 /* SampleModel.swift in Sources */,
+				454B86882971A5A300F4484B /* FavoritesView.swift in Sources */,
 				45A2F5A728D723DE00EFA830 /* ImageModifier.swift in Sources */,
 				45BFD046289538110050D064 /* Secret_Dairy.xcdatamodeld in Sources */,
+				45A684A729C69C52006F25B7 /* GradientView.swift in Sources */,
 				45150CEA28E96F7800147ADF /* ListScrollView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -362,16 +426,17 @@
 		45BFD04A289538110050D064 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon 2";
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon 4";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 1.1.0;
 				DEVELOPMENT_ASSET_PATHS = "\"DAYCE/Preview Content\"";
 				DEVELOPMENT_TEAM = BP8CCKX4A3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Secret-Dairy-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.photography";
 				INFOPLIST_KEY_NSCalendarsUsageDescription = "カレンダーを使います";
 				INFOPLIST_KEY_NSCameraUsageDescription = "カメラを使います";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "認証します";
@@ -383,11 +448,12 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "hiro.Secret-Dairy";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -402,16 +468,17 @@
 		45BFD04B289538110050D064 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon 2";
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon 4";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 1.1.0;
 				DEVELOPMENT_ASSET_PATHS = "\"DAYCE/Preview Content\"";
 				DEVELOPMENT_TEAM = BP8CCKX4A3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Secret-Dairy-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.photography";
 				INFOPLIST_KEY_NSCalendarsUsageDescription = "カレンダーを使います";
 				INFOPLIST_KEY_NSCameraUsageDescription = "カメラを使います";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "認証します";
@@ -423,11 +490,12 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "hiro.Secret-Dairy";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
