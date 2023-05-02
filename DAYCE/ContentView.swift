@@ -28,7 +28,7 @@ struct ContentView: View {
             (!showFavoritesOnly || sample.bool) && (!showNewAlbumOnly || sample.bool2)
         }
     }
- 
+    
     @State private var searchText: String = ""
     @State private var selectedTag = 1
     @State var photoLibraryDone: Bool = false
@@ -37,14 +37,6 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             List {
-                Toggle(isOn: $showFavoritesOnly.animation(.spring())) {
-                    Text("お気に入り")
-                        .font(.headline)
-                }.disabled(showNewAlbumOnly)
-                Toggle(isOn: $showNewAlbumOnly.animation(.spring())) {
-                    Text("\(albumName.name)")
-                        .font(.headline)
-                }.disabled(showFavoritesOnly)
                 ForEach(filteredsamples) { samples in
                     NavigationLink {
                         Mone(samples: samples)
@@ -52,25 +44,37 @@ struct ContentView: View {
                         SampleCardView(sampleModel: sampleModel, samples: samples)
                     }
                 }
-                    .onDelete(perform:
-                        deleteMemo(offsets:))
-                    }
+                .onDelete(perform:
+                            deleteMemo(offsets:))
+            }
             .searchable(text: $searchText, prompt: "検索")
             .onChange(of: searchText) { newValue in
                 searchResults(texts: newValue)
             }
-            .navigationTitle("リスト")
+            .navigationTitle("List")
             .navigationBarTitleDisplayMode(.large)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(action:{
-                        sampleModel.isNewData.toggle()
-                    }){
-                        Image(systemName: "pencil.and.outline")
+                    HStack {
+                        Toggle(isOn: $showFavoritesOnly.animation(.spring())) {
+                            Image(systemName: "heart")
+                                .font(.headline)
+                        }
+                        .disabled(showNewAlbumOnly)
+                        Toggle(isOn: $showNewAlbumOnly.animation(.spring())) {
+                            Image(systemName: "star")
+                                .font(.headline)
+                        }
+                        .disabled(showFavoritesOnly)
+                        Button(action:{
+                            sampleModel.isNewData.toggle()
+                        }){
+                            Image(systemName: "pencil.and.outline")
+                        }
+                        .sheet(isPresented: $sampleModel.isNewData, content: {
+                            SheetView(sampleModel: sampleModel)
+                        })
                     }
-                    .sheet(isPresented: $sampleModel.isNewData, content: {
-                        SheetView(sampleModel: sampleModel)
-                    })
                 }
             }
         }

@@ -7,11 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		450C535629631F5000787D77 /* FolderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450C535529631F5000787D77 /* FolderView.swift */; };
 		450C5358296322AA00787D77 /* FolderCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450C5357296322AA00787D77 /* FolderCardView.swift */; };
 		45120D7F28B1D15F009AF074 /* DayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45120D7E28B1D15F009AF074 /* DayView.swift */; };
-		45150CEA28E96F7800147ADF /* ListScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45150CE928E96F7800147ADF /* ListScrollView.swift */; };
-		45150CEC28E96F9600147ADF /* PhotoScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45150CEB28E96F9600147ADF /* PhotoScrollView.swift */; };
 		4524088F289A954D0027AF59 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4524088E289A954D0027AF59 /* MainView.swift */; };
 		45240891289A97C90027AF59 /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45240890289A97C90027AF59 /* LibraryView.swift */; };
 		45240893289A98700027AF59 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45240892289A98700027AF59 /* SettingView.swift */; };
@@ -25,6 +22,8 @@
 		453FF8B72934F4AB00AF615E /* RotationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453FF8B62934F4AB00AF615E /* RotationData.swift */; };
 		454A336429656D6C0013418D /* AlbumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454A336329656D6C0013418D /* AlbumView.swift */; };
 		454B86882971A5A300F4484B /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454B86872971A5A300F4484B /* FavoritesView.swift */; };
+		45552A4229FE99040040D932 /* CustomImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45552A4129FE99040040D932 /* CustomImage.swift */; };
+		45552A4429FE9D3C0040D932 /* CustomImageMini.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45552A4329FE9D3C0040D932 /* CustomImageMini.swift */; };
 		45978E982898F1E600025136 /* PhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45978E972898F1E600025136 /* PhotoView.swift */; };
 		45A2DFE0290D008300E2D94E /* PrivacyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A2DFDF290D008300E2D94E /* PrivacyView.swift */; };
 		45A2DFE2290D029300E2D94E /* Terms Of ServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A2DFE1290D029300E2D94E /* Terms Of ServiceView.swift */; };
@@ -52,14 +51,13 @@
 		45DB5C8529141CCC00514C1B /* ColorData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DB5C8429141CCC00514C1B /* ColorData.swift */; };
 		45EDDC2D294A04AA00957C6C /* ImagePager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EDDC2C294A04AA00957C6C /* ImagePager.swift */; };
 		45F998F328D61A8C00A829F1 /* Mone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F998F228D61A8C00A829F1 /* Mone.swift */; };
+		45FC60D529FBFAD80093AF36 /* MiniView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FC60D429FBFAD80093AF36 /* MiniView.swift */; };
+		45FC60D729FBFE9C0093AF36 /* TwitterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FC60D629FBFE9C0093AF36 /* TwitterView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		450C535529631F5000787D77 /* FolderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderView.swift; sourceTree = "<group>"; };
 		450C5357296322AA00787D77 /* FolderCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderCardView.swift; sourceTree = "<group>"; };
 		45120D7E28B1D15F009AF074 /* DayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayView.swift; sourceTree = "<group>"; };
-		45150CE928E96F7800147ADF /* ListScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListScrollView.swift; sourceTree = "<group>"; };
-		45150CEB28E96F9600147ADF /* PhotoScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoScrollView.swift; sourceTree = "<group>"; };
 		4524088E289A954D0027AF59 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		45240890289A97C90027AF59 /* LibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryView.swift; sourceTree = "<group>"; };
 		45240892289A98700027AF59 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
@@ -73,6 +71,8 @@
 		453FF8B62934F4AB00AF615E /* RotationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotationData.swift; sourceTree = "<group>"; };
 		454A336329656D6C0013418D /* AlbumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumView.swift; sourceTree = "<group>"; };
 		454B86872971A5A300F4484B /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
+		45552A4129FE99040040D932 /* CustomImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImage.swift; sourceTree = "<group>"; };
+		45552A4329FE9D3C0040D932 /* CustomImageMini.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageMini.swift; sourceTree = "<group>"; };
 		45978E972898F1E600025136 /* PhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoView.swift; sourceTree = "<group>"; };
 		45A2DFDF290D008300E2D94E /* PrivacyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyView.swift; sourceTree = "<group>"; };
 		45A2DFE1290D029300E2D94E /* Terms Of ServiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Terms Of ServiceView.swift"; sourceTree = "<group>"; };
@@ -101,6 +101,8 @@
 		45DB5C8429141CCC00514C1B /* ColorData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorData.swift; sourceTree = "<group>"; };
 		45EDDC2C294A04AA00957C6C /* ImagePager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePager.swift; sourceTree = "<group>"; };
 		45F998F228D61A8C00A829F1 /* Mone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mone.swift; sourceTree = "<group>"; };
+		45FC60D429FBFAD80093AF36 /* MiniView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniView.swift; sourceTree = "<group>"; };
+		45FC60D629FBFE9C0093AF36 /* TwitterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,18 +148,19 @@
 				45BFD039289538100050D064 /* DAYCEApp.swift */,
 				4524088E289A954D0027AF59 /* MainView.swift */,
 				45A684A629C69C52006F25B7 /* GradientView.swift */,
+				45552A4129FE99040040D932 /* CustomImage.swift */,
+				45552A4329FE9D3C0040D932 /* CustomImageMini.swift */,
+				45FC60D629FBFE9C0093AF36 /* TwitterView.swift */,
+				45FC60D429FBFAD80093AF36 /* MiniView.swift */,
 				45EDDC2C294A04AA00957C6C /* ImagePager.swift */,
 				452D14D9297CFA1F003E793E /* FavoritesPager.swift */,
 				452D14DB297CFCD2003E793E /* NewAlbumPager.swift */,
 				454A336329656D6C0013418D /* AlbumView.swift */,
-				45150CE928E96F7800147ADF /* ListScrollView.swift */,
-				45150CEB28E96F9600147ADF /* PhotoScrollView.swift */,
 				45BFD03B289538100050D064 /* ContentView.swift */,
 				45F998F228D61A8C00A829F1 /* Mone.swift */,
 				45240890289A97C90027AF59 /* LibraryView.swift */,
 				454B86872971A5A300F4484B /* FavoritesView.swift */,
 				45B857A52973DEB80090E648 /* NewAlbumView.swift */,
-				450C535529631F5000787D77 /* FolderView.swift */,
 				45A2F5A828D725E800EFA830 /* ZoomView.swift */,
 				45A2F5A628D723DE00EFA830 /* ImageModifier.swift */,
 				45B6269829B42BA1007EA905 /* Speech bubble.swift */,
@@ -277,8 +280,9 @@
 				45D8C80728F165AC00E66C22 /* FullPhotoView.swift in Sources */,
 				45BFD03A289538100050D064 /* DAYCEApp.swift in Sources */,
 				452D398D2972767100E9DAE5 /* AlbumName.swift in Sources */,
+				45552A4429FE9D3C0040D932 /* CustomImageMini.swift in Sources */,
+				45FC60D729FBFE9C0093AF36 /* TwitterView.swift in Sources */,
 				45240891289A97C90027AF59 /* LibraryView.swift in Sources */,
-				450C535629631F5000787D77 /* FolderView.swift in Sources */,
 				45BFD04F28953B320050D064 /* SampleData+CoreDataProperties.swift in Sources */,
 				45B6269929B42BA1007EA905 /* Speech bubble.swift in Sources */,
 				45978E982898F1E600025136 /* PhotoView.swift in Sources */,
@@ -288,21 +292,21 @@
 				45BFD05328953C1E0050D064 /* PhotoPicker.swift in Sources */,
 				45DB5C8529141CCC00514C1B /* ColorData.swift in Sources */,
 				4524F0E52951F19100C8951D /* ScrollTabView.swift in Sources */,
-				45150CEC28E96F9600147ADF /* PhotoScrollView.swift in Sources */,
 				45BFD05728953E090050D064 /* SampleCardView.swift in Sources */,
 				4531AF8528AB81B8003F57F8 /* IconView.swift in Sources */,
+				45552A4229FE99040040D932 /* CustomImage.swift in Sources */,
 				45B857A62973DEB80090E648 /* NewAlbumView.swift in Sources */,
 				45BFD04E28953B320050D064 /* SampleData+CoreDataClass.swift in Sources */,
 				453A07CA2978228100E02CAC /* AlbumCardView.swift in Sources */,
 				452D14DC297CFCD2003E793E /* NewAlbumPager.swift in Sources */,
 				45D905E428E884B100909107 /* ZoomableScrollView.swift in Sources */,
 				45240895289AA4420027AF59 /* PhotoCardView.swift in Sources */,
+				45FC60D529FBFAD80093AF36 /* MiniView.swift in Sources */,
 				45BFD05128953BDC0050D064 /* SampleModel.swift in Sources */,
 				454B86882971A5A300F4484B /* FavoritesView.swift in Sources */,
 				45A2F5A728D723DE00EFA830 /* ImageModifier.swift in Sources */,
 				45BFD046289538110050D064 /* Secret_Dairy.xcdatamodeld in Sources */,
 				45A684A729C69C52006F25B7 /* GradientView.swift in Sources */,
-				45150CEA28E96F7800147ADF /* ListScrollView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,6 +363,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = NO;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -413,6 +418,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = NO;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -426,8 +432,9 @@
 		45BFD04A289538110050D064 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon 4";
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon 1";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1.1.0;
 				DEVELOPMENT_ASSET_PATHS = "\"DAYCE/Preview Content\"";
@@ -446,6 +453,7 @@
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "フォトを使います";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = GradientView;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
@@ -468,8 +476,9 @@
 		45BFD04B289538110050D064 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon 4";
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon 1";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1.1.0;
 				DEVELOPMENT_ASSET_PATHS = "\"DAYCE/Preview Content\"";
@@ -488,6 +497,7 @@
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "フォトを使います";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = GradientView;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.5;

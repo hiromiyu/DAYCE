@@ -109,13 +109,13 @@ struct SheetView: View {
                     sampleModel.image2 = Data.init()
                 }
                 case 2: HStack {
-                    Image(uiImage: UIImage(data: images[0]) ??
-                          UIImage(systemName: "photo")!)
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 90, height: 90, alignment: .center)
-                    .border(Color.gray)
-                    .clipped()
+                        Image(uiImage: UIImage(data: images[0]) ??
+                              UIImage(systemName: "photo")!)
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 90, height: 90, alignment: .center)
+                        .border(Color.gray)
+                        .clipped()
                     
                     Image(uiImage: UIImage(data: images[1]) ??
                           UIImage(systemName: "photo")!)

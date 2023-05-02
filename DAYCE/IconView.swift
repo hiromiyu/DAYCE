@@ -6,40 +6,22 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct IconView: View {
+    @ObservedObject var samples : SampleData
+    
     var body: some View {
-        VStack {
-            ZStack() {
-                Rectangle()
-                    .foregroundColor(.purple)
-                ZStack() {
-                    Image(systemName: "magazine")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .foregroundColor(.white)
-                        .frame(width: 300, height: 270, alignment: .center)
-                    Image(systemName: "photo")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .foregroundColor(Color.white)
-                        .padding(.vertical, 12.0)
-                        .frame(width: 100.0, height: 100.0)
-                        .position(x: 178, y: 410)
-                }
-                Text("DAYCE")
-                    .foregroundColor(.white)
-                    .font(.largeTitle)
-                    .scaleEffect(2)
-                    .position(x: 200, y: 600)
-            }
-            
+        if samples.image1?.count ?? 0
+            != 0 {
+            Image(uiImage: UIImage(data: samples.wrappedImg1)!)
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .frame(width: 150, height: 150)
+                .cornerRadius(20)
+        } else {
+            CustomImage()
         }
     }
 }
 
-struct IconView_Previews: PreviewProvider {
-    static var previews: some View {
-        IconView()
-    }
-}

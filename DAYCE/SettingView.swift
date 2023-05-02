@@ -16,7 +16,8 @@ struct webData: Identifiable {
 struct SettingView: View {
     
     let weblist =
-    webData(name: "問い合わせはこちら", url: "https://docs.google.com/forms/d/e/1FAIpQLSfykjA3rGBDPq5Q2lpwHuKZ8a1mnxvnoLnLL1q1Cccq5S5hzQ/viewform?usp=sf_link")
+    webData(name: "問い合わせはこちら", url: "https://assgin.pythonanywhere.com")
+    //    webData(name: "問い合わせはこちら", url: "https://docs.google.com/forms/d/e/1FAIpQLSfykjA3rGBDPq5Q2lpwHuKZ8a1mnxvnoLnLL1q1Cccq5S5hzQ/viewform?usp=sf_link")
     
     let colors = ["黒", "紫", "赤", "緑", "青", "黄", "ピンク", "オレンジ","茶"]
     let darkcolors = ["白", "紫", "赤", "緑", "青", "黄", "ピンク", "オレンジ","茶"]
@@ -93,7 +94,12 @@ struct SettingView: View {
                             Text("お気に入りに名前を付けたい時は⭐️を押します")
                             Text("保存を押します")
                         }
-                    Section(header: Text("リスト")
+                    Section(header: Text("Diary")
+                        .font(.title)) {
+                            Text("縦スクロールで見れます")
+                            Text("設定画面で文字の色を変更できます")
+                        }
+                    Section(header: Text("List")
                         .font(.title)) {
                             Text("日記を文字で検索できます")
                             Text("お気に入りボタンで絞り込みできます")
@@ -102,27 +108,8 @@ struct SettingView: View {
                             Text("長押しで編集、削除ができます")
                             Text("左スワイプでも削除できます")
                         }
-                    Section(header:
-                                Image(systemName: "doc.text.image")
-                        .font(.title)) {
-                            Text("日記を文字で検索できます")
-                            Text("お気に入りボタンで絞り込みできます")
-                            Text("名前を付けたお気に入りで絞り込みできます")
-                            Text("タップで日記の表示、非表示ができます")
-                            Text("長押しで編集、削除ができます")
-                        }
-                    Section(header:
-                                Image(systemName:"scroll.fill")
-                        .font(.title)) {
-                            Text("縦スクロールで見れます")
-                            Text("設定画面で文字の色を変更できます")
-                            Text("写真内で文字を動かせます")
-                            Text("文字をタップすると少し大きくなります")
-                            Text("お気に入りボタンで絞り込みできます")
-                            Text("名前を付けたお気に入りで絞り込みできます")
-                        }
-                    Section(header:
-                                Image(systemName:"book.fill")
+                    
+                    Section(header: Text("Album")
                         .font(.title)) {
                             Text("写真アルバムです")
                             Text("⭐️アルバムを開くと左上のペンマークで名前を付ける事ができます")
@@ -156,7 +143,7 @@ struct SettingView: View {
                     Text("利用規約")
                 }
             }
-            .navigationTitle(Text("使い方"))
+            .navigationTitle(Text("Setting"))
         }
     }
 }

@@ -76,7 +76,7 @@ struct SampleCardView: View {
         formatter.locale = Locale(identifier: "ja_JP")
         formatter.dateStyle = .long
         formatter.timeStyle = .none
-        formatter.dateFormat = "yyyy年MM月dd日"
+        formatter.dateFormat = "y年M月d日"
         formatter.string(from: Date())
         return formatter
     }()

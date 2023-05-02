@@ -12,7 +12,7 @@ import Combine
 struct AlbumView: View {
     @Environment(\.managedObjectContext) private var context
     @FetchRequest(
-        entity:SampleData.entity(),
+        entity: SampleData.entity(),
         sortDescriptors: [NSSortDescriptor(keyPath: \SampleData.date, ascending: false)],
         animation: .default)
     private var sampleis: FetchedResults<SampleData>
@@ -57,14 +57,14 @@ struct AlbumView: View {
                             })
                             {
                                 VStack(alignment: .leading) {
-                                    AlbumCardView(samples: sampleis[0], sampleModel: sampleModel)
+                                    IconView(samples: sampleis[0])
                                     Text("写真一覧")
                                     Text("\(sampleis.count)")
                                 }
                             }.padding()
                                 .fullScreenCover(isPresented: $photoLibraryDone)
                             {
-                                LibraryView(samples: SampleData(), isPresented: $photoLibraryDone)
+                                LibraryView(isPresented: $photoLibraryDone)
                             }
                         }
                         Spacer()
@@ -74,14 +74,14 @@ struct AlbumView: View {
                             })
                             {
                                 VStack(alignment: .leading) {
-                                    AlbumCardView(samples: filteredsamples[0], sampleModel: sampleModel)
+                                    IconView(samples: filteredsamples[0])
                                     Text("お気に入り")
                                     Text("\(filteredsamples.count)")
                                 }
                             }.padding()
                                 .fullScreenCover(isPresented: $FavoritesDone)
                             {
-                                FavoritesView(samples: SampleData(), isPresented: $FavoritesDone)
+                                FavoritesView(isPresented: $FavoritesDone)
                             }
                         }
                     }
@@ -92,19 +92,19 @@ struct AlbumView: View {
                         })
                         {
                             VStack(alignment: .leading) {
-                                AlbumCardView(samples: filteredAlbums[0], sampleModel: sampleModel)
+                                IconView(samples: filteredAlbums[0])
                                 Text("\(albumName.name)")
                                 Text("\(filteredAlbums.count)")
                             }
                         }.padding()
                             .fullScreenCover(isPresented: $NewAlbumDone)
                         {
-                            NewAlbumView(samples: SampleData(), isPresented: $NewAlbumDone)
+                            NewAlbumView(isPresented: $NewAlbumDone)
                         }
                     }
                     
                 }
-            }.navigationTitle("アルバム")
+            }.navigationTitle("Album")
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
                         Button(action:{

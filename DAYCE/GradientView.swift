@@ -9,8 +9,15 @@ import SwiftUI
 
 struct GradientView: View {
     var body: some View {
-        LinearGradient(gradient: Gradient(colors: [.blue, .purple]), startPoint: .topLeading, endPoint: .bottomTrailing)
-            .edgesIgnoringSafeArea(.all)
+        ZStack {
+            
+            LinearGradient(gradient: Gradient(colors: [.blue, .purple]), startPoint: .topLeading, endPoint: .bottomTrailing)
+                .edgesIgnoringSafeArea(.all)
+            Text("DAYCE")
+                .font(.system(size: 100, design: .rounded))
+                .fontWeight(.heavy)
+                .foregroundColor(.yellow)
+        }
     }
 }
 struct GradientView_Previews: PreviewProvider {
