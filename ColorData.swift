@@ -5,7 +5,6 @@
 //  Created by ひろ on 2022/11/04.
 //
 
-import Foundation
 import SwiftUI
 
 class ColorData: ObservableObject {

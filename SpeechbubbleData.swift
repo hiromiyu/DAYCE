@@ -5,7 +5,6 @@
 //  Created by ひろ on 2023/03/05.
 //
 
-import Foundation
 import SwiftUI
 
 class SpeechbubbleData: ObservableObject {

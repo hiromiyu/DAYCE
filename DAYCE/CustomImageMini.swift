@@ -21,7 +21,8 @@ struct CustomImageMini: View {
                 .frame(width: 60, height: 50)
                 .foregroundColor(.black)
                 .opacity(0.5)
-        }    }
+        }
+    }
 }
 
 struct CustomImageMini_Previews: PreviewProvider {

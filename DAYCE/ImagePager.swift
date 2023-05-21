@@ -20,6 +20,7 @@ struct ImagePager: View {
     @State var emptySwitchON = true
     @State var isLink = false
     @Environment(\.dismiss) private var dismiss
+    @State private var isTapped = false
     
     var body: some View {
         ZStack {
@@ -44,47 +45,49 @@ struct ImagePager: View {
                 EmptyView()
             } else {
                 VStack {
-                    HStack {
-                        Spacer()
-                        Button {
-                            dismiss()
-                        } label: {
-                            Text("閉じる")
-                                .font(.title2)
-                                .fontWeight(.medium)
-                                .padding([.top, .trailing])
+                    ZStack(alignment: .topTrailing) {
+                        HStack {
+                            Spacer()
+                            Button {
+                                dismiss()
+                            } label: {
+                                Text("閉じる")
+                                    .font(.title2)
+                                    .fontWeight(.medium)
+                                    .padding([.top, .trailing])
+                            }
                         }
                     }
                     Spacer()
                 }
-            }
-            if emptySwitchON {
-                EmptyView()
-            } else {
-                VStack {
-                    Spacer()
-                    ScrollView(.horizontal, showsIndicators: false) {
-                        ScrollViewReader { proxy in
-                            HStack {
-                                ForEach(sampleis.indices, id: \.self) { item in
-                                    Button(action: {
-                                        withAnimation {
-                                            selectedTag = item
-                                        }
-                                    }, label: {
-                                        ScrollTabView(samples: sampleis[item], sampleModel: sampleModel)
+                if emptySwitchON {
+                    EmptyView()
+                } else {
+                    VStack {
+                        Spacer()
+                        ScrollView(.horizontal, showsIndicators: false) {
+                            ScrollViewReader { proxy in
+                                HStack {
+                                    ForEach(sampleis.indices, id: \.self) { item in
+                                        Button(action: {
+                                            withAnimation {
+                                                selectedTag = item
+                                            }
+                                        }, label: {
+                                            ScrollTabView(samples: sampleis[item], sampleModel: sampleModel)
+                                        })
+                                    }
+                                    .onAppear(perform: {
+                                        proxy.scrollTo(selectedTag, anchor: .center)
                                     })
                                 }
-                                .onAppear(perform: {
-                                    proxy.scrollTo(selectedTag, anchor: .center)
+                                .padding([.leading, .bottom, .trailing])
+                                .onChange(of: selectedTag, perform: { index in
+                                    withAnimation {
+                                        proxy.scrollTo(index, anchor: .center)
+                                    }
                                 })
                             }
-                            .padding([.leading, .bottom, .trailing])
-                            .onChange(of: selectedTag, perform: { index in
-                                withAnimation {
-                                    proxy.scrollTo(index, anchor: .center)
-                                }
-                            })
                         }
                     }
                 }

@@ -5,8 +5,7 @@
 //  Created by ひろ on 2022/07/30.
 //
 //
-
-import Foundation
+import SwiftUI
 import CoreData
 
 @objc(SampleData)

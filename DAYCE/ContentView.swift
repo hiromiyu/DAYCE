@@ -33,16 +33,17 @@ struct ContentView: View {
     @State private var selectedTag = 1
     @State var photoLibraryDone: Bool = false
     @State var photoTabDone: Bool = false
-    
+    @State private var selectedItems: Set<SampleData> = []
+        
     var body: some View {
         NavigationView {
-            List {
-                ForEach(filteredsamples) { samples in
-                    NavigationLink {
-                        Mone(samples: samples)
-                    } label: {
-                        SampleCardView(sampleModel: sampleModel, samples: samples)
-                    }
+            List(selection: $selectedItems) {
+                ForEach(filteredsamples, id: \.self) { samples in
+                        NavigationLink {
+                            Mone(samples: samples)
+                        } label: {
+                            SampleCardView(sampleModel: sampleModel, samples: samples)
+                        }
                 }
                 .onDelete(perform:
                             deleteMemo(offsets:))
@@ -54,6 +55,9 @@ struct ContentView: View {
             .navigationTitle("List")
             .navigationBarTitleDisplayMode(.large)
             .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                        EditButton()
+                }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     HStack {
                         Toggle(isOn: $showFavoritesOnly.animation(.spring())) {
@@ -74,6 +78,7 @@ struct ContentView: View {
                         .sheet(isPresented: $sampleModel.isNewData, content: {
                             SheetView(sampleModel: sampleModel)
                         })
+                                deleteButton
                     }
                 }
             }
@@ -85,6 +90,26 @@ struct ContentView: View {
         }
         try? viewContext.save()
     }
+    
+    var deleteButton: some View {
+        Button(action:
+                {
+            deleteSelectedItems()
+            selectedItems.removeAll()
+        }
+        ) {
+            Image(systemName: "trash")
+        }
+        .disabled(selectedItems.isEmpty)
+    }
+    
+    func deleteSelectedItems() {
+        selectedItems.forEach { item in
+            viewContext.delete(item)
+        }
+        try? viewContext.save()
+    }
+    
     private func searchResults(texts: String) {
         if texts.isEmpty {
             sampleis.nsPredicate = nil
